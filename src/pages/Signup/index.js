@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { api } from "../../api/api.js";
 
 export function Signup() {
   const [form, setForm] = useState({
@@ -7,12 +8,23 @@ export function Signup() {
     repeatPassword: "",
   });
 
-  function handleChange() {
+  function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    try {
+      const response = await api.post("/sign-up", form);
+      console.log(response.data);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <label htmlFor="input-email">Email:</label>
       <input
         id="input-email"
@@ -37,6 +49,7 @@ export function Signup() {
         name="repeat-password"
         onChange={handleChange}
       />
+      <button>Sign Up</button>
     </form>
   );
 }
