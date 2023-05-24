@@ -41,12 +41,12 @@ export function Signup() {
         name="password"
         onChange={handleChange}
       />
-      <label htmlFor="input-repeat-password">Repeat password:</label>
+      <label htmlFor="input-repeatPassword">Repeat password:</label>
       <input
-        id="input-repeat-password"
-        type="repeat-password"
+        id="input-repeatPassword"
+        type="repeatPassword"
         value={form.repeatPassword}
-        name="repeat-password"
+        name="repeatPassword"
         onChange={handleChange}
       />
       <button>Sign Up</button>
