@@ -1,18 +1,11 @@
 import { Link } from "react-router-dom";
+import { NavBar } from "../../components/NavBar/index.js";
 
 export function About() {
   return (
     <>
       <div>
-        <Link to="/login">
-          <button>LOGIN - ícone no menu superior</button>
-        </Link>
-        <Link to="/home">
-          <button>HOME - ícone no menu superior</button>
-        </Link>
-        <Link to="/events">
-          <button>EXPLORE</button>
-        </Link>
+        <NavBar />
         <h1>ABOUT THE INITIATIVE</h1>
       </div>
     </>
