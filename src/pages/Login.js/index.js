@@ -20,8 +20,8 @@ export function Login() {
       const response = await api.post("/login", form);
       setLoggedInUser({ ...response.data });
       console.log(response);
-      localStorage.setItem("loggedInUser", JSON.stringify(response.data)),
-        navigate("/profile");
+      localStorage.setItem("loggedInUser", JSON.stringify(response.data));
+      navigate("/profile");
     } catch (err) {
       console.log(err);
     }
