@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { NavBar } from "../../components/NavBar/index.js";
+import { Footer } from "../../components/Footer/index.js";
 
 export function Home() {
   return (
@@ -11,6 +12,7 @@ export function Home() {
           <Link to="about">
             <button>LET'S START - ícone de seta em box</button>
           </Link>
+          <Footer />
         </div>
       </div>
     </>
