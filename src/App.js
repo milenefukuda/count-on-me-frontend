@@ -1,3 +1,4 @@
+import "bootstrap/dist/css/bootstrap.min.css";
 import { Routes, Route } from "react-router-dom";
 import { AuthContextComponent } from "./contexts/authContext.js";
 import { Signup } from "./pages/Signup/index.js";
