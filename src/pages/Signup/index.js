@@ -54,10 +54,10 @@ export function Signup() {
           onChange={handleChange}
         />
         <button>Sign Up</button>
-        <Link to="/login">
-          <button>Login</button>
-        </Link>
       </form>
+      <Link to="/login">
+        <button>Login</button>
+      </Link>
     </>
   );
 }

@@ -9,7 +9,7 @@ export function Home() {
         <div>
           <NavBar />
           <h1>Manifest the change you want to see in the world</h1>
-          <Link to="about">
+          <Link to="/about">
             <button>LET'S START - ícone de seta em box</button>
           </Link>
           <Footer />

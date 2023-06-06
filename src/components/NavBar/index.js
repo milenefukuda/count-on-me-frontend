@@ -11,7 +11,7 @@ export function NavBar() {
         <Link to="/about" className={NavBtnClass}>
           <button>ABOUT ÍCONE</button>
         </Link>
-        <Link to="signup" className={NavBtnClass}>
+        <Link to="/signup" className={NavBtnClass}>
           <button>SIGNUP ÍCONE</button>
         </Link>
       </nav>
