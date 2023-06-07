@@ -2,9 +2,11 @@ import { useState } from "react";
 import { api } from "../../api/api.js";
 import { Link } from "react-router-dom";
 import { NavBar } from "../../components/NavBar/index.js";
+import { Footer } from "../../components/Footer/index.js";
 
 export function Signup() {
   const [form, setForm] = useState({
+    name: "",
     email: "",
     password: "",
     repeatPassword: "",
@@ -18,7 +20,7 @@ export function Signup() {
     e.preventDefault();
 
     try {
-      const response = await api.post("/sign-up", form);
+      const response = await api.post("/signup", form);
       console.log(response.data);
     } catch (err) {
       console.log(err);
@@ -28,36 +30,79 @@ export function Signup() {
   return (
     <>
       <NavBar />
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="input-email">Email:</label>
-        <input
-          id="input-email"
-          type="email"
-          value={form.email}
-          name="email"
-          onChange={handleChange}
-        />
-        <label htmlFor="input-password">Password:</label>
-        <input
-          id="input-password"
-          type="password"
-          value={form.password}
-          name="password"
-          onChange={handleChange}
-        />
-        <label htmlFor="input-repeatPassword">Repeat password:</label>
-        <input
-          id="input-repeatPassword"
-          type="repeatPassword"
-          value={form.repeatPassword}
-          name="repeatPassword"
-          onChange={handleChange}
-        />
-        <button>Sign Up</button>
-      </form>
-      <Link to="/login">
-        <button>Login</button>
-      </Link>
+      <div className="container my-4">
+        <div className="row justify-content-center">
+          <div className="col-md-6">
+            <div className="card text-center">
+              <div className="card-body">
+                <h5 className="card-title">Register</h5>
+                <form>
+                  <div className="mb-3">
+                    <label htmlFor="name" className="form-label"></label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="name"
+                      placeholder="Name"
+                      value={form.name}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="email" className="form-label"></label>
+                    <input
+                      type="email"
+                      className="form-control"
+                      id="email"
+                      placeholder="Email"
+                      value={form.email}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="password" className="form-label"></label>
+                    <input
+                      type="password"
+                      className="form-control"
+                      id="password"
+                      placeholder="Password"
+                      value={form.password}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label
+                      htmlFor="confirmPassword"
+                      className="form-label"
+                    ></label>
+                    <input
+                      type="password"
+                      className="form-control"
+                      id="repeatPassword"
+                      placeholder="Confirm Password"
+                      value={form.repeatPassword}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="d-grid gap-2">
+                    <button
+                      type="submit"
+                      className="btn btn-primary"
+                      onSubmit={handleSubmit}
+                    >
+                      Sign Up
+                    </button>
+                  </div>
+                </form>
+                <p className="text-muted mt-2">
+                  Already have an account? <a href="/login">Sign In</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <Footer />
     </>
   );
 }

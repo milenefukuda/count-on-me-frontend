@@ -37,7 +37,7 @@ export function NavBar() {
                 <a
                   className="nav-link active"
                   aria-current="page"
-                  href="/login"
+                  href="/signup"
                 >
                   <FaUserAlt />
                 </a>
