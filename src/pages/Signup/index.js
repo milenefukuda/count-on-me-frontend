@@ -72,14 +72,14 @@ export function Signup() {
                   </div>
                   <div className="mb-3">
                     <label
-                      htmlFor="confirmPassword"
+                      htmlFor="repeatPassword"
                       className="form-label"
                     ></label>
                     <input
                       type="password"
                       className="form-control"
                       id="repeatPassword"
-                      placeholder="Confirm Password"
+                      placeholder="Repeat Password"
                       value={form.repeatPassword}
                       onChange={handleChange}
                     />

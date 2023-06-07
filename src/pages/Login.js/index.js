@@ -32,32 +32,52 @@ export function Login() {
   return (
     <>
       <NavBar />
-      <div>
-        <h1>LOGIN HERE</h1>
-        <form onSubmit={handleSubmit}>
-          <label>EMAIL</label>
-          <input
-            type="email"
-            name="email"
-            value={form.email}
-            onChange={handleChange}
-            placeholder="email"
-          />
-          <label>PASSWORD</label>
-          <input
-            type="password"
-            name="password"
-            value={form.password}
-            onChange={handleChange}
-            placeholder="email"
-          />
-          <div>
-            <button>Login!</button>
-            <Link to="/signup">
-              <button>Sign up!</button>
-            </Link>
+      <div className="container my-4">
+        <div className="row justify-content-center">
+          <div className="col-md-6">
+            <div className="card text-center">
+              <div className="card-body">
+                <h5 className="card-title">Sign In</h5>
+                <form>
+                  <div className="mb-3">
+                    <label htmlFor="email" className="form-label"></label>
+                    <input
+                      type="email"
+                      className="form-control"
+                      id="email"
+                      placeholder="Email"
+                      value={form.email}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="password" className="form-label"></label>
+                    <input
+                      type="password"
+                      className="form-control"
+                      id="password"
+                      placeholder="Password"
+                      value={form.password}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="d-grid gap-2">
+                    <button
+                      type="submit"
+                      className="btn btn-primary"
+                      onSubmit={handleSubmit}
+                    >
+                      Sign Up
+                    </button>
+                  </div>
+                </form>
+                <p className="text-muted mt-2">
+                  Don't have an account yet? <a href="/signup">Register</a>
+                </p>
+              </div>
+            </div>
           </div>
-        </form>
+        </div>
       </div>
       <Footer />
     </>
