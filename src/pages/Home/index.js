@@ -5,16 +5,19 @@ import { Footer } from "../../components/Footer/index.js";
 export function Home() {
   return (
     <>
-      <div>
-        <div>
-          <NavBar />
-          <h1>Manifest the change you want to see in the world</h1>
-          <Link to="/about">
-            <button>LET'S START - ícone de seta em box</button>
-          </Link>
-          <Footer />
-        </div>
+      <NavBar />
+      <div
+        className="d-flex align-items-center justify-content-start"
+        style={{
+          backgroundImage: "url(../assets/mundo_desktop.png)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          height: "100vh",
+        }}
+      >
+        <h1 className="text-white">Seu texto curto</h1>
       </div>
+      <Footer />
     </>
   );
 }
