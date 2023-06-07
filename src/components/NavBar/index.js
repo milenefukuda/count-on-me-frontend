@@ -14,7 +14,11 @@ export function NavBar() {
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
-            <FaFistRaised />
+            <img
+              src="https://res.cloudinary.com/dieqaoy0n/image/upload/v1686141967/Icon_bwb14d.png"
+              alt="Logo"
+              style={{ width: "25px", height: "auto", marginRight: "10px" }}
+            />
             You count on me!
           </a>
           <button

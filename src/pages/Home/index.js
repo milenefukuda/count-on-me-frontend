@@ -10,7 +10,7 @@ export function Home() {
       <div className="container">
         <div className="row">
           <div className="col-md-6 d-flex align-items-center justify-content-start">
-            <h1>Manifest the change you want to see in the world</h1>
+            <h1>Manifest for the change you want to see in the world</h1>
           </div>
           <div className="col-md-6 d-flex align-items-center justify-content-end">
             <img
