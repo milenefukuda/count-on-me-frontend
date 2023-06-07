@@ -1,3 +1,4 @@
+import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import { NavBar } from "../../components/NavBar/index.js";
 import { Footer } from "../../components/Footer/index.js";
@@ -6,16 +7,20 @@ export function Home() {
   return (
     <>
       <NavBar />
-      <div
-        className="d-flex align-items-center justify-content-start"
-        style={{
-          backgroundImage: "url(../assets/mundo_desktop.png)",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          height: "100vh",
-        }}
-      >
-        <h1 className="text-white">Seu texto curto</h1>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-6 d-flex align-items-center justify-content-start">
+            <h3>Manifest the change you want to see in the world</h3>
+          </div>
+          <div className="col-md-6 d-flex align-items-center justify-content-end">
+            <img
+              src="https://res.cloudinary.com/dieqaoy0n/image/upload/v1686140455/mundo_desktop_hvwx73.png"
+              alt="Imagem"
+              className="img-fluid"
+              style={{ maxWidth: "100%" }}
+            />
+          </div>
+        </div>
       </div>
       <Footer />
     </>

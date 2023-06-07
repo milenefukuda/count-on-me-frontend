@@ -2,6 +2,8 @@ import { useContext, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { api } from "../../api/api.js";
 import { AuthContext } from "../../contexts/authContext.js";
+import { NavBar } from "../../components/NavBar/index.js";
+import { Footer } from "../../components/Footer/index.js";
 
 export function Login() {
   const [form, setForm] = useState({
@@ -29,6 +31,7 @@ export function Login() {
 
   return (
     <>
+      <NavBar />
       <div>
         <h1>LOGIN HERE</h1>
         <form onSubmit={handleSubmit}>
@@ -56,6 +59,7 @@ export function Login() {
           </div>
         </form>
       </div>
+      <Footer />
     </>
   );
 }

@@ -9,7 +9,7 @@ import { Login } from "./pages/Login.js";
 function App() {
   return (
     <>
-      <div className=".bg-sucess">
+      <div className="bg-sucess">
         <AuthContextComponent>
           <Routes>
             <Route path="/" element={<Home />} />
