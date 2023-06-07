@@ -36,7 +36,7 @@ export function Signup() {
             <div className="card text-center">
               <div className="card-body">
                 <h5 className="card-title">Register</h5>
-                <form>
+                <form onSubmit={handleSubmit}>
                   <div className="mb-3">
                     <label htmlFor="name" className="form-label"></label>
                     <input
@@ -76,7 +76,7 @@ export function Signup() {
                       className="form-label"
                     ></label>
                     <input
-                      type="password"
+                      type="repeatPassword"
                       className="form-control"
                       id="repeatPassword"
                       placeholder="Repeat Password"
@@ -85,11 +85,7 @@ export function Signup() {
                     />
                   </div>
                   <div className="d-grid gap-2">
-                    <button
-                      type="submit"
-                      className="btn btn-primary"
-                      onSubmit={handleSubmit}
-                    >
+                    <button type="submit" className="btn btn-primary">
                       Sign Up
                     </button>
                   </div>

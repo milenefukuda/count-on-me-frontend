@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { SearchBar } from "../SearchBar";
 import { useState } from "react";
-import { FaFistRaised, FaUserAlt, FaSearch } from "react-icons/fa";
+import { FaUserAlt } from "react-icons/fa";
 
 export function NavBar() {
   const [search, setSearch] = useState("");
