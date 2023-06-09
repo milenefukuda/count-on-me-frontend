@@ -1,4 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle";
 import { Routes, Route } from "react-router-dom";
 import { AuthContextComponent } from "./contexts/authContext.js";
 import { Signup } from "./pages/Signup/index.js";
