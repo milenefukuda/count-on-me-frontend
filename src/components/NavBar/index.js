@@ -1,7 +1,8 @@
+import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import { SearchBar } from "../SearchBar";
 import { useState } from "react";
-import { FaUserAlt } from "react-icons/fa";
+import { FaUserAlt, FaInfo } from "react-icons/fa";
 
 export function NavBar() {
   const [search, setSearch] = useState("");
@@ -33,10 +34,18 @@ export function NavBar() {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li className="nav-item">
+            <ul className="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+              <li className="nav-item" style={{ marginRight: "10px" }}>
                 <SearchBar changeSearch={changeSearch} />
               </li>
+              <li className="nav-item">
+                <img
+                  src="https://res.cloudinary.com/dieqaoy0n/image/upload/v1686321175/Vector_xzi709.svg"
+                  alt="Link"
+                  style={{ width: "25px", height: "auto", marginRight: "10px" }}
+                />
+              </li>
+
               <li className="nav-item">
                 <Link
                   to="/signup"
