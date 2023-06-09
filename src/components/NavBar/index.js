@@ -38,13 +38,13 @@ export function NavBar() {
                 <SearchBar changeSearch={changeSearch} />
               </li>
               <li className="nav-item">
-                <a
+                <Link
+                  to="/signup"
                   className="nav-link active"
                   aria-current="page"
-                  href="/signup"
                 >
                   <FaUserAlt />
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

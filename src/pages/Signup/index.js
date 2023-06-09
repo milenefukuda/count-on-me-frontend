@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { api } from "../../api/api.js";
-import { Link } from "react-router-dom";
 import { NavBar } from "../../components/NavBar/index.js";
 import { Footer } from "../../components/Footer/index.js";
+import { Link, useNavigate } from "react-router-dom";
 
 export function Signup() {
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -13,14 +14,18 @@ export function Signup() {
   });
 
   function handleChange(e) {
+    console.log("handleChange", e.target.name, e.target.value);
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
   async function handleSubmit(e) {
     e.preventDefault();
+    console.log("handleSubmit", form);
+    const clone = { ...form };
 
     try {
-      const response = await api.post("/signup", form);
+      const response = await api.post("/signup", { ...clone });
+      navigate("/profile");
       console.log(response.data);
     } catch (err) {
       console.log(err);
@@ -42,8 +47,8 @@ export function Signup() {
                     <input
                       type="text"
                       className="form-control"
-                      id="name"
-                      placeholder="Name"
+                      id="formName"
+                      placeholder="name"
                       value={form.name}
                       onChange={handleChange}
                     />
@@ -53,8 +58,8 @@ export function Signup() {
                     <input
                       type="email"
                       className="form-control"
-                      id="email"
-                      placeholder="Email"
+                      id="formEmail"
+                      placeholder="email"
                       value={form.email}
                       onChange={handleChange}
                     />
@@ -64,8 +69,8 @@ export function Signup() {
                     <input
                       type="password"
                       className="form-control"
-                      id="password"
-                      placeholder="Password"
+                      id="formPassword"
+                      placeholder="password"
                       value={form.password}
                       onChange={handleChange}
                     />
@@ -76,18 +81,20 @@ export function Signup() {
                       className="form-label"
                     ></label>
                     <input
-                      type="repeatPassword"
+                      type="password"
                       className="form-control"
-                      id="repeatPassword"
-                      placeholder="Repeat Password"
+                      id="formPassword"
+                      placeholder="password"
                       value={form.repeatPassword}
                       onChange={handleChange}
                     />
                   </div>
                   <div className="d-grid gap-2">
-                    <button type="submit" className="btn btn-primary">
-                      Sign Up
-                    </button>
+                    <Link to="/profile">
+                      <button type="submit" className="btn btn-primary">
+                        Sign Up
+                      </button>
+                    </Link>
                   </div>
                 </form>
                 <p className="text-muted mt-2">

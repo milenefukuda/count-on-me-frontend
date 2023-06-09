@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { api } from "../../api/api.js";
 import { AuthContext } from "../../contexts/authContext.js";
 import { NavBar } from "../../components/NavBar/index.js";
@@ -38,7 +38,7 @@ export function Login() {
             <div className="card text-center">
               <div className="card-body">
                 <h5 className="card-title">Sign In</h5>
-                <form>
+                <form onSubmit={handleSubmit}>
                   <div className="mb-3">
                     <label htmlFor="email" className="form-label"></label>
                     <input
@@ -62,12 +62,8 @@ export function Login() {
                     />
                   </div>
                   <div className="d-grid gap-2">
-                    <button
-                      type="submit"
-                      className="btn btn-primary"
-                      onSubmit={handleSubmit}
-                    >
-                      Sign Up
+                    <button type="submit" className="btn btn-primary">
+                      Sign In
                     </button>
                   </div>
                 </form>
