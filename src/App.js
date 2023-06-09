@@ -5,6 +5,7 @@ import { Signup } from "./pages/Signup/index.js";
 import { Home } from "./pages/Home/index.js";
 import { About } from "./pages/About.js";
 import { Login } from "./pages/Login.js";
+import { Profile } from "./pages/Profile.js/index.js";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
             <Route path="/about" element={<About />} />
+            <Route path="/profile" element={<Profile />} />
           </Routes>
         </AuthContextComponent>
       </div>
