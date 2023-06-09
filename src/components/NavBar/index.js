@@ -1,8 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Link } from "react-router-dom";
 import { SearchBar } from "../SearchBar";
 import { useState } from "react";
-import { FaUserAlt, FaInfo } from "react-icons/fa";
 
 export function NavBar() {
   const [search, setSearch] = useState("");
@@ -47,13 +45,17 @@ export function NavBar() {
               </li>
 
               <li className="nav-item">
-                <Link
-                  to="/signup"
-                  className="nav-link active"
-                  aria-current="page"
-                >
-                  <FaUserAlt />
-                </Link>
+                <a href="/signup">
+                  <img
+                    src="https://res.cloudinary.com/dieqaoy0n/image/upload/v1686323510/Group_afenmg.svg"
+                    alt="Link"
+                    style={{
+                      width: "25px",
+                      height: "auto",
+                      marginRight: "10px",
+                    }}
+                  />
+                </a>
               </li>
             </ul>
           </div>
