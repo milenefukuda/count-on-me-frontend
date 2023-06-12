@@ -1,4 +1,3 @@
-import "bootstrap/dist/css/bootstrap.min.css";
 import { NavBar } from "../../components/NavBar/index.js";
 import { Footer } from "../../components/Footer/index.js";
 

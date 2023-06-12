@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { SearchBar } from "../SearchBar";
 import { useState, useEffect, useRef } from "react";
-import { createPopper } from "@popperjs/core";
+import { usePopper } from "react-popper";
 
 export function NavBar() {
   const [search, setSearch] = useState("");
@@ -18,17 +18,27 @@ export function NavBar() {
   const popoverId = "my-popover";
   const secondImageref = useRef(null);
   const popoverContent =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut semper at sapien non facilisis. Etiam mauris est, tempor quis tempus eget, consequat vel mauris. Aliquam convallis finibus enim. Maecenas mattis laoreet massa, id faucibus diam vehicula at. Vestibulum feugiat augue ac mi mattis, vel imperdiet purus finibus. In efficitur arcu id felis elementum, in egestas ipsum viverra. Maecenas odio eros, consectetur sed gravida quis, ornare eget tellus. Integer vitae porta leo. Proin bibendum, risus eu pulvinar elementum, lorem augue semper sapien, at luctus felis metus sed risus. Aliquam a sem justo. Fusce mauris nisi, blandit in sapien at, consectetur feugiat odio. Mauris mollis nulla id ligula maximus mattis nec non felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris consequat, eros ac finibus faucibus, nulla tortor convallis justo, eget bibendum tortor erat vel ante. Sed eget accumsan velit, eu pretium diam. Ut ac elit nibh.";
+    "About the Initiative: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut semper at sapien non facilisis. Etiam mauris est, tempor quis tempus eget, consequat vel mauris. Aliquam convallis finibus enim. Maecenas mattis laoreet massa, id faucibus diam vehicula at. Vestibulum feugiat augue ac mi mattis, vel imperdiet purus finibus. In efficitur arcu id felis elementum, in egestas ipsum viverra. Maecenas odio eros, consectetur sed gravida quis, ornare eget tellus. Integer vitae porta leo. Proin bibendum, risus eu pulvinar elementum, lorem augue semper sapien, at luctus felis metus sed risus. Aliquam a sem justo. Fusce mauris nisi, blandit in sapien at, consectetur feugiat odio. Mauris mollis nulla id ligula maximus mattis nec non felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris consequat, eros ac finibus faucibus, nulla tortor convallis justo, eget bibendum tortor erat vel ante. Sed eget accumsan velit, eu pretium diam. Ut ac elit nibh.";
+
+  const [referenceElement, setReferenceElement] = useState(null);
+  const [popperElement, setPopperElement] = useState(null);
+  const { styles, attributes } = usePopper(referenceElement, popperElement, {
+    placement: "left",
+    modifiers: [
+      {
+        name: "offset",
+        options: {
+          offset: [0, 0],
+        },
+      },
+    ],
+  });
 
   useEffect(() => {
     const secondImage = secondImageref.current;
 
     if (secondImage) {
-      const popover = createPopper(
-        secondImage,
-        secondImage.nextElementSibling,
-        { placement: "bottom" }
-      );
+      setReferenceElement(secondImage);
     }
   }, []);
 
@@ -83,7 +93,8 @@ export function NavBar() {
                     className="popover bs-popover-bottom show"
                     role="tooltip"
                     id={popoverId}
-                    style={{ pointerEvents: "none" }}
+                    style={{ ...styles.popper, pointerEvents: "none" }}
+                    {...attributes.popper}
                   >
                     <div className="popover-body">{popoverContent}</div>
                   </div>

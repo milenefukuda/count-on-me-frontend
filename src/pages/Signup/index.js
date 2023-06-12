@@ -24,7 +24,7 @@ export function Signup() {
     const clone = { ...form };
 
     try {
-      const response = await api.post("/signup", { ...clone });
+      const response = await api.post("/user/signup", { ...clone });
       navigate("/profile");
       console.log(response.data);
     } catch (err) {
