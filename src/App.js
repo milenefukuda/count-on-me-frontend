@@ -14,9 +14,9 @@ function App() {
         <AuthContextComponent>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/user/signup" element={<Signup />} />
+            <Route path="/user/login" element={<Login />} />
+            <Route path="/user/profile" element={<Profile />} />
           </Routes>
         </AuthContextComponent>
       </div>

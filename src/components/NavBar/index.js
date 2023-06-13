@@ -112,7 +112,7 @@ export function NavBar() {
               </li>
 
               <li className="nav-item">
-                <a href="/signup">
+                <a href="/user/signup">
                   <img
                     src="https://res.cloudinary.com/dieqaoy0n/image/upload/v1686323510/Group_afenmg.svg"
                     alt="Link"

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { api } from "../../api/api.js";
 import { NavBar } from "../../components/NavBar/index.js";
 import { Footer } from "../../components/Footer/index.js";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export function Signup() {
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ export function Signup() {
 
     try {
       const response = await api.post("/user/signup", { ...clone });
-      navigate("/profile");
+      navigate("/user/profile");
       console.log(response.data);
     } catch (err) {
       console.log(err);
@@ -90,11 +90,9 @@ export function Signup() {
                     />
                   </div>
                   <div className="d-grid gap-2">
-                    <Link to="/profile">
-                      <button type="submit" className="btn btn-primary">
-                        Sign Up
-                      </button>
-                    </Link>
+                    <button type="submit" className="btn btn-primary">
+                      Sign Up
+                    </button>
                   </div>
                 </form>
                 <p className="text-muted mt-2">
