@@ -27,8 +27,9 @@ export function Signup() {
       const response = await api.post("http://localhost:4000/user/signup", {
         ...clone,
       });
-      navigate("/user/profile");
-      console.log(response.data);
+      // localStorage.removeItem("loggedInUser");
+      // localStorage.setItem("loggedInUser", JSON.stringify(response.data));
+      navigate("/user/login");
     } catch (err) {
       console.log(err);
     }
