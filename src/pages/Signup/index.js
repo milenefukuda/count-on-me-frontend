@@ -14,7 +14,7 @@ export function Signup() {
   });
 
   function handleChange(e) {
-    console.log("handleChange", e.target.name, e.target.value);
+    //console.log("handleChange", e.target.name, e.target.value);
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
@@ -24,7 +24,9 @@ export function Signup() {
     const clone = { ...form };
 
     try {
-      const response = await api.post("/user/signup", { ...clone });
+      const response = await api.post("http://localhost:4000/user/signup", {
+        ...clone,
+      });
       navigate("/user/profile");
       console.log(response.data);
     } catch (err) {
@@ -49,6 +51,7 @@ export function Signup() {
                       className="form-control"
                       id="formName"
                       placeholder="name"
+                      name="name"
                       value={form.name}
                       onChange={handleChange}
                     />
@@ -60,6 +63,7 @@ export function Signup() {
                       className="form-control"
                       id="formEmail"
                       placeholder="email"
+                      name="email"
                       value={form.email}
                       onChange={handleChange}
                     />
@@ -71,6 +75,7 @@ export function Signup() {
                       className="form-control"
                       id="formPassword"
                       placeholder="password"
+                      name="password"
                       value={form.password}
                       onChange={handleChange}
                     />
@@ -85,6 +90,7 @@ export function Signup() {
                       className="form-control"
                       id="formPassword"
                       placeholder="password"
+                      name="repeatPassword"
                       value={form.repeatPassword}
                       onChange={handleChange}
                     />
@@ -96,7 +102,7 @@ export function Signup() {
                   </div>
                 </form>
                 <p className="text-muted mt-2">
-                  Already have an account? <a href="/login">Sign In</a>
+                  Already have an account? <a href="/user/login">Sign In</a>
                 </p>
               </div>
             </div>

@@ -19,11 +19,11 @@ export function Login() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const response = await api.post("/user/login", form);
+      const response = await api.post("http://localhost:4000/user/login", form);
       setLoggedInUser({ ...response.data });
       console.log(response);
       localStorage.setItem("loggedInUser", JSON.stringify(response.data));
-      navigate("/profile");
+      navigate("/user/profile");
     } catch (err) {
       console.log(err);
     }
@@ -45,6 +45,7 @@ export function Login() {
                       type="email"
                       className="form-control"
                       id="email"
+                      name="email"
                       placeholder="Email"
                       value={form.email}
                       onChange={handleChange}
@@ -56,6 +57,7 @@ export function Login() {
                       type="password"
                       className="form-control"
                       id="password"
+                      name="password"
                       placeholder="Password"
                       value={form.password}
                       onChange={handleChange}
