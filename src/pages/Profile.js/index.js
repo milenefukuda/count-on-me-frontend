@@ -44,7 +44,19 @@ export function Profile() {
   return (
     <>
       <NavBar />
-      <h1>{`Hello, ${form.name}`}</h1>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-6 d-flex align-items-center justify-content-start">
+            <h1>{`Hello, ${form.name}`}</h1>
+          </div>
+          <img
+            src="https://res.cloudinary.com/dieqaoy0n/image/upload/v1686140455/mundo_desktop_hvwx73.png"
+            alt="Imagem"
+            className="img-fluid"
+            style={{ maxWidth: "100%" }}
+          />
+        </div>
+      </div>
       <button onClick={handleLogOut}>Log Out</button>
       <Footer />
     </>
