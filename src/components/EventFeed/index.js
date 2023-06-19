@@ -10,7 +10,9 @@ export function EventFeed(props) {
   useEffect(() => {
     async function getAllEvents() {
       try {
-        const response = await api.get("/all-events");
+        const response = await api.get(
+          "http://localhost:4000/events/all-events"
+        );
         setEventFeed(response.data);
         setIsLoading(false);
         console.log(response.data);
