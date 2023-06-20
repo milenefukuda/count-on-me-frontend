@@ -19,7 +19,7 @@ export function Login() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const response = await api.post("http://localhost:4000/user/login", form);
+      const response = await api.post("/user/login", form);
       setLoggedInUser({ ...response.data });
       console.log(response);
       localStorage.setItem("loggedInUser", JSON.stringify(response.data));

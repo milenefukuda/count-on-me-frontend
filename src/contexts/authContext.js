@@ -1,4 +1,3 @@
-import userEvent from "@testing-library/user-event";
 import { createContext, useEffect, useState } from "react";
 
 const AuthContext = createContext(null);

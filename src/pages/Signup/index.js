@@ -24,11 +24,11 @@ export function Signup() {
     const clone = { ...form };
 
     try {
-      const response = await api.post("http://localhost:4000/user/signup", {
+      const response = await api.post("/user/signup", {
         ...clone,
       });
-      // localStorage.removeItem("loggedInUser");
-      // localStorage.setItem("loggedInUser", JSON.stringify(response.data));
+      localStorage.removeItem("loggedInUser");
+      localStorage.setItem("loggedInUser", JSON.stringify(response.data));
       navigate("/user/login");
     } catch (err) {
       console.log(err);
