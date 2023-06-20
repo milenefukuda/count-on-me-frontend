@@ -20,31 +20,6 @@ export function Profile() {
     fetchUser();
   }, []);
 
-  // let dataUserLogin = JSON.parse(localStorage.getItem("loggedInUser"));
-
-  // console.log(localStorage.getItem("loggedInUser"));
-
-  // const token = dataUserLogin.token;
-
-  // useEffect(() => {
-  //   async function fetchForm() {
-  //     try {
-  //       const headers = { Authorization: `Bearer ${token}` };
-  //       const response = await api.get("/user/profile", {
-  //         headers,
-  //       });
-
-  //       let nameValue = response.data.name;
-  //       setForm({ ...form, ["name"]: nameValue });
-  //       setIsLoading(false);
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   }
-  //   console.log(form.name);
-  //   fetchForm();
-  // }, []);
-
   function handleLogOut() {
     localStorage.removeItem("loggedInUser");
     setLoggedInUser(null);
