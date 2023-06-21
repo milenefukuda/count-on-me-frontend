@@ -6,6 +6,7 @@ import { Signup } from "./pages/Signup/index.js";
 import { Home } from "./pages/Home/index.js";
 import { Login } from "./pages/Login/index.js";
 import { Profile } from "./pages/Profile/index.js";
+import { CreateEvent } from "./pages/CreateEvent/index.js";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/user/signup" element={<Signup />} />
             <Route path="/user/login" element={<Login />} />
             <Route path="/user/profile" element={<Profile />} />
+            <Route path="/event/create" element={<CreateEvent />} />
           </Routes>
         </AuthContextComponent>
       </div>

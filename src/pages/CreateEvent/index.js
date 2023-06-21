@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../../api/api.js";
-import { NavBar } from "../../components/NavBar.index.js";
-import { Footer } from "../../components/Footer.index.js";
+import { NavBar } from "../../components/NavBar/index.js";
+import { Footer } from "../../components/Footer/index.js";
 
 export function CreateEvent() {
   const navigate = useNavigate;
@@ -31,11 +31,11 @@ export function CreateEvent() {
       console.log(err);
     }
   }
-}
 
-return (
-  <>
-    <NavBar />
-    <Footer />
-  </>
-);
+  return (
+    <>
+      <NavBar />
+      <Footer />
+    </>
+  );
+}
