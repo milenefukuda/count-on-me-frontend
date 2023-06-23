@@ -5,13 +5,14 @@ import { NavBar } from "../../components/NavBar/index.js";
 import { Footer } from "../../components/Footer/index.js";
 
 export function CreateEvent() {
-  const navigate = useNavigate;
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     eventName: "",
     date: "",
     time: "",
     local: "",
     categories: "",
+    picture: "",
     description: "",
     associatedLinks: "",
   });
@@ -27,7 +28,7 @@ export function CreateEvent() {
     try {
       const response = await api.post("/event/create", { ...clone });
       localStorage.setItem("loggedInUser", JSON.stringify(response.data));
-      navigate("/event/:id");
+      navigate("/event/view");
     } catch (err) {
       console.log(err);
     }

@@ -44,7 +44,7 @@ export function NavBar() {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav className="navbar navbar-expand-lg bg-light">
         <div className="container-fluid">
           <a className="navbar-brand" href="/" style={{ color: "black" }}>
             <img
@@ -97,7 +97,7 @@ export function NavBar() {
                       position: "absolute",
                       left: "50%",
                       transform: "translate(-50%, 0)",
-                      backgroundColor: "#f2f2f2",
+                      backgroundColor: "bg-dark",
                       color: "black",
                       padding: "10px",
                       borderRadius: "5px",
