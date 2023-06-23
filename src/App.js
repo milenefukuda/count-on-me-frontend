@@ -7,6 +7,7 @@ import { Home } from "./pages/Home/index.js";
 import { Login } from "./pages/Login/index.js";
 import { Profile } from "./pages/Profile/index.js";
 import { CreateEvent } from "./pages/CreateEvent/index.js";
+import { ViewEvent } from "./pages/ViewEvent/index.js";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="/user/login" element={<Login />} />
             <Route path="/user/profile" element={<Profile />} />
             <Route path="/event/create" element={<CreateEvent />} />
+            <Route path="/event/view" element={<ViewEvent />} />
           </Routes>
         </AuthContextComponent>
       </div>
