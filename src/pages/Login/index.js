@@ -23,6 +23,8 @@ export function Login() {
       setLoggedInUser({ ...response.data });
       console.log(response);
       localStorage.setItem("loggedInUser", JSON.stringify(response.data));
+
+      console.log(localStorage.getItem("loggedInUser"));
       navigate("/user/profile");
     } catch (err) {
       console.log(err);

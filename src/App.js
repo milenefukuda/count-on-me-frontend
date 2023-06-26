@@ -8,6 +8,7 @@ import { Login } from "./pages/Login/index.js";
 import { Profile } from "./pages/Profile/index.js";
 import { CreateEvent } from "./pages/CreateEvent/index.js";
 import { ViewEvent } from "./pages/ViewEvent/index.js";
+import { ProtectedRoute } from "./components/ProtectedRoutes/index.js";
 
 function App() {
   return (
@@ -18,9 +19,18 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/user/signup" element={<Signup />} />
             <Route path="/user/login" element={<Login />} />
-            <Route path="/user/profile" element={<Profile />} />
-            <Route path="/event/create" element={<CreateEvent />} />
-            <Route path="/event/view" element={<ViewEvent />} />
+            <Route
+              path="/user/profile"
+              element={<ProtectedRoute component={Profile} />}
+            />
+            <Route
+              path="/event/create"
+              element={<ProtectedRoute component={CreateEvent} />}
+            />
+            <Route
+              path="/event/view/"
+              element={<ProtectedRoute component={ViewEvent} />}
+            />
           </Routes>
         </AuthContextComponent>
       </div>

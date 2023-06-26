@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { api } from "../../api/api.js";
 import { NavBar } from "../../components/NavBar/index.js";
 import { Footer } from "../../components/Footer/index.js";
 
 export function CreateEvent() {
+  const params = useParams();
   const navigate = useNavigate();
   const [form, setForm] = useState({
     eventName: "",
@@ -24,11 +25,12 @@ export function CreateEvent() {
   async function handleSubmit(e) {
     e.preventDefault();
     const clone = { ...form };
+    console.log(clone);
 
     try {
       const response = await api.post("/event/create", { ...clone });
-      localStorage.setItem("loggedInUser", JSON.stringify(response.data));
-      navigate("/user/profile");
+      //   localStorage.setItem("loggedInUser", JSON.stringify(response.data));
+      navigate("/event/view/6499a9c4e6e0fb16b02af641");
     } catch (err) {
       console.log(err);
     }
