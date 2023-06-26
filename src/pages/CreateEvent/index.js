@@ -30,7 +30,7 @@ export function CreateEvent() {
     try {
       const response = await api.post("/event/create", { ...clone });
       //   localStorage.setItem("loggedInUser", JSON.stringify(response.data));
-      navigate("/event/view/6499a9c4e6e0fb16b02af641");
+      navigate(`/event/view/${response.data._id}`);
     } catch (err) {
       console.log(err);
     }

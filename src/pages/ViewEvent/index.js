@@ -11,11 +11,11 @@ export function ViewEvent() {
   const [reload, setReload] = useState(false);
   const [form, setForm] = useState({});
   const navigate = useNavigate();
-
+  console.log("testetestetw");
   useEffect(() => {
     async function getEvent() {
       try {
-        const response = await api.get(`/event/view/${params._id}`);
+        const response = await api.get(`/event/view/${params.id}`);
         console.log(response.data);
         setEvent(response.data);
       } catch (err) {
@@ -23,7 +23,7 @@ export function ViewEvent() {
       }
     }
     getEvent();
-  }, [reload]);
+  }, [params._id]);
 
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -40,7 +40,7 @@ export function ViewEvent() {
 
   async function handleDelete() {
     try {
-      await api.delete(`/event/delete/:eventId/${params._id}`);
+      await api.delete(`/event/delete/:eventId/${params.id}`);
       navigate("/user/profile");
     } catch (err) {
       console.log(err);

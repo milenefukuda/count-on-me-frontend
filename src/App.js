@@ -19,6 +19,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/user/signup" element={<Signup />} />
             <Route path="/user/login" element={<Login />} />
+            <Route path="/event/view/:id" element={<ViewEvent />} />
             <Route
               path="/user/profile"
               element={<ProtectedRoute component={Profile} />}
@@ -26,10 +27,6 @@ function App() {
             <Route
               path="/event/create"
               element={<ProtectedRoute component={CreateEvent} />}
-            />
-            <Route
-              path="/event/view/"
-              element={<ProtectedRoute component={ViewEvent} />}
             />
           </Routes>
         </AuthContextComponent>
