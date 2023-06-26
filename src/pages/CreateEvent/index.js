@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { api } from "../../api/api.js";
-import { NavBar } from "../../components/NavBar/index.js";
 import { Footer } from "../../components/Footer/index.js";
+import { LoggedInNavBar } from "../../components/LoggedInNavBar/index.js";
 
 export function CreateEvent() {
   const params = useParams();
@@ -38,7 +38,7 @@ export function CreateEvent() {
 
   return (
     <>
-      <NavBar />
+      <LoggedInNavBar />
       <div className="container my-4">
         <div className="row justify-content-center">
           <div className="col-md-6">

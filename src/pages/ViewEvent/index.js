@@ -1,4 +1,4 @@
-import { NavBar } from "../../components/NavBar";
+import { LoggedInNavBar } from "../../components/LoggedInNavBar";
 import { Footer } from "../../components/Footer";
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -49,7 +49,7 @@ export function ViewEvent() {
 
   return (
     <>
-      <NavBar />
+      <LoggedInNavBar />
       <div>
         <h1>{event.eventName}</h1>
         <h1>{event.date}</h1>

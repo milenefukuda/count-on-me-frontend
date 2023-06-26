@@ -1,5 +1,5 @@
 import { api } from "../../api/api.js";
-import { NavBar } from "../../components/NavBar";
+import { LoggedInNavBar } from "../../components/LoggedInNavBar/index.js";
 import { Footer } from "../../components/Footer";
 import { useState, useEffect, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
@@ -28,7 +28,7 @@ export function Profile() {
 
   return (
     <>
-      <NavBar />
+      <LoggedInNavBar />
       <div className="container">
         <div className="row">
           <div className="col-md-6 d-flex align-items-center justify-content-center flex-column">
