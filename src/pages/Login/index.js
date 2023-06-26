@@ -72,7 +72,7 @@ export function Login() {
                   </div>
                 </form>
                 <p className="text-muted mt-2">
-                  Don't have an account yet? <a href="/signup">Register</a>
+                  Don't have an account yet? <a href="/user/signup">Register</a>
                 </p>
               </div>
             </div>
