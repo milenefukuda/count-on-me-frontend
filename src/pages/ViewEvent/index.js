@@ -11,7 +11,8 @@ export function ViewEvent() {
   const [reload, setReload] = useState(false);
   const [form, setForm] = useState({});
   const navigate = useNavigate();
-  console.log("testetestetw");
+  const [supporters, setSupporters] = useState(0);
+
   useEffect(() => {
     async function getEvent() {
       try {
@@ -24,6 +25,15 @@ export function ViewEvent() {
     }
     getEvent();
   }, [params._id]);
+
+  async function handleCountOnMe() {
+    try {
+      await api.post(`/event/support/${params.id}`);
+      setSupporters(supporters + 1);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -50,14 +60,33 @@ export function ViewEvent() {
   return (
     <>
       <LoggedInNavBar />
-      <div>
-        <h1>{event.eventName}</h1>
-        <h1>{event.date}</h1>
-        <h1>{event.time}</h1>
-        <h1>{event.local}</h1>
-        <h1>{event.categories}</h1>
-        <h1>{event.description}</h1>
-        <h1>{event.associatedLinks}</h1>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-6">
+            <div className="card">
+              <div
+                className="card-body"
+                style={{ backgroundColor: event.primaryColor }}
+              >
+                <h2
+                  className="card-title"
+                  style={{ backgroundColor: event.secondaryColor }}
+                >
+                  {event.eventName}
+                </h2>
+                <p className="card-text">{event.local}</p>
+                <p className="card-text">{event.date}</p>
+                <button className="btn btn-primary" onClick={handleCountOnMe}>
+                  Count on me
+                </button>
+                <p className="card-text">{supporters} supporters</p>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-6">
+            {/* Aqui você pode adicionar qualquer conteúdo adicional no lado direito */}
+          </div>
+        </div>
       </div>
       <Footer />
     </>

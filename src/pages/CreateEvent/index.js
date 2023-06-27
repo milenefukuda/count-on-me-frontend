@@ -16,6 +16,7 @@ export function CreateEvent() {
     picture: "",
     description: "",
     associatedLinks: "",
+    primaryColor: "",
   });
 
   function handleChange(e) {
@@ -130,6 +131,36 @@ export function CreateEvent() {
                       placeholder="Associated Links"
                       name="associatedLinks"
                       value={form.associatedLinks}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label
+                      htmlFor="primaryColor"
+                      className="form-label"
+                    ></label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="formPrimaryColor"
+                      placeholder="Primary Color"
+                      name="primaryColor"
+                      value={form.primaryColor}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label
+                      htmlFor="secondaryColor"
+                      className="form-label"
+                    ></label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="formSecondaryColor"
+                      placeholder="Secondary Color"
+                      name="secondaryColor"
+                      value={form.secondaryColor}
                       onChange={handleChange}
                     />
                   </div>

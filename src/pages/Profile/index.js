@@ -4,12 +4,14 @@ import { Footer } from "../../components/Footer";
 import { useState, useEffect, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/authContext.js";
+import { EventCard } from "../../components/EventCard/index.js";
 
 export function Profile() {
   const { setLoggedInUser } = useContext(AuthContext);
   const [user, setUser] = useState({
     name: "",
   });
+  const [userEvents, setUserEvents] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,7 +19,12 @@ export function Profile() {
       const response = await api.get("/user/profile");
       setUser(response.data);
     }
+    async function fetchUserEvents() {
+      const response = await api.get("/event/my-events");
+      setUserEvents(response.data);
+    }
     fetchUser();
+    fetchUserEvents();
   }, []);
 
   function handleLogOut() {
@@ -41,6 +48,9 @@ export function Profile() {
             <Link to="/event/create" className="btn btn-primary mt-2">
               Create Event
             </Link>
+            {userEvents.map((event) => (
+              <EventCard key={event.id} event={event} />
+            ))}
           </div>
           <div className="col-md-6">
             <img
