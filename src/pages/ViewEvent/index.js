@@ -66,12 +66,12 @@ export function ViewEvent() {
             <div className="card">
               <div
                 className="card-body"
-                style={{ backgroundColor: event.primaryColor }}
+                style={{ backgroundColor: event.secondaryColor }}
               >
                 <h2
                   className="card-title"
                   style={{
-                    backgroundColor: event.secondaryColor,
+                    backgroundColor: event.primaryColor,
                     color: "white",
                   }}
                 >

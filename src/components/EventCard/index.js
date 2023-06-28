@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { api } from "../../api/api.js";
 
 export function EventCard({ event }) {
   const [events, setEvents] = useState([]);
+  const params = useParams();
 
   useEffect(() => {
     async function getMyEvents() {
@@ -26,12 +27,11 @@ export function EventCard({ event }) {
         {event.date}
       </div>
       <div className="card-body">
-        <h3 className="card-title">{event.eventName}</h3>
+        <Link to={`/event/${event._id}`}>
+          <h3 className="card-title">{event.eventName}</h3>
+        </Link>
         <p className="card-text">{event.local}</p>
         <p className="card-text">Supporters: {event.supporters}</p>
-        <Link to={`/event/${event._id}`} className="btn btn-dark">
-          View Details
-        </Link>
       </div>
     </div>
   );

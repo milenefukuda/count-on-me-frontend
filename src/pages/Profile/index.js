@@ -2,12 +2,14 @@ import { api } from "../../api/api.js";
 import { LoggedInNavBar } from "../../components/LoggedInNavBar/index.js";
 import { Footer } from "../../components/Footer";
 import { useState, useEffect, useContext } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useParams } from "react-router-dom";
 import { AuthContext } from "../../contexts/authContext.js";
 import { EventCard } from "../../components/EventCard/index.js";
 
 export function Profile() {
   const { setLoggedInUser } = useContext(AuthContext);
+  const params = useParams();
+  const [reload, setReload] = useState(false);
   const [user, setUser] = useState({
     name: "",
     id: "",
@@ -22,12 +24,12 @@ export function Profile() {
       fetchUserEvents();
     }
     async function fetchUserEvents() {
-      const response = await api.get(`/event/my-events/${user._id}`);
+      const response = await api.get(`/event/my-events/${params.id}`);
       setUserEvents(response.data);
     }
     fetchUser();
     fetchUserEvents();
-  }, [user._id]);
+  }, [reload]);
 
   function handleLogOut() {
     localStorage.removeItem("loggedInUser");
