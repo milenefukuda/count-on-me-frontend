@@ -99,6 +99,30 @@ export function Profile() {
             </div>
           ))}
         </div>
+        <div className="row">
+          <div className="col-md-12 d-flex justify-content">
+            <h1
+              style={{
+                color: "#000000",
+                fontSize: "24px",
+                margin: "0",
+                marginBottom: "10px",
+              }}
+              className="my-auto"
+            >
+              Supported by you
+            </h1>
+          </div>
+        </div>
+        <div className="row event-container">
+          {userEvents.map((event) => (
+            <div key={event.id} className="col-6 col-md-3 mb-4">
+              <div className="mb-4">
+                <EventCard event={event} />
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
       <Footer />
     </>
