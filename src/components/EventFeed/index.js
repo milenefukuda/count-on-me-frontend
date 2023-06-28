@@ -11,7 +11,7 @@ export function EventFeed(props) {
     async function getAllEvents() {
       try {
         const response = await api.get(
-          "http://localhost:4000/events/all-events"
+          "http://localhost:4000/event/all-events"
         );
         setEventFeed(response.data);
         setIsLoading(false);

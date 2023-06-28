@@ -17,6 +17,7 @@ export function CreateEvent() {
     description: "",
     associatedLinks: "",
     primaryColor: "",
+    secundaryColor: "",
   });
 
   function handleChange(e) {
@@ -165,7 +166,7 @@ export function CreateEvent() {
                     />
                   </div>
                   <div className="d-grid gap-2">
-                    <button type="submit" className="btn btn-primary">
+                    <button type="submit" className="btn btn-dark">
                       Create
                     </button>
                   </div>

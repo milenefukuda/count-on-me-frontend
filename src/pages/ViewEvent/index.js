@@ -70,13 +70,16 @@ export function ViewEvent() {
               >
                 <h2
                   className="card-title"
-                  style={{ backgroundColor: event.secondaryColor }}
+                  style={{
+                    backgroundColor: event.secondaryColor,
+                    color: "white",
+                  }}
                 >
                   {event.eventName}
                 </h2>
                 <p className="card-text">{event.local}</p>
                 <p className="card-text">{event.date}</p>
-                <button className="btn btn-primary" onClick={handleCountOnMe}>
+                <button className="btn btn-dark" onClick={handleCountOnMe}>
                   Count on me
                 </button>
                 <p className="card-text">{supporters} supporters</p>
