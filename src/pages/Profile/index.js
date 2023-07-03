@@ -21,14 +21,13 @@ export function Profile() {
     async function fetchUser() {
       const response = await api.get("/user/profile");
       setUser(response.data);
-      fetchUserEvents();
+      fetchUserEvents(response.data.id);
     }
     async function fetchUserEvents() {
       const response = await api.get(`/event/my-events/${params.id}`);
       setUserEvents(response.data);
     }
     fetchUser();
-    fetchUserEvents();
   }, [reload]);
 
   function handleLogOut() {
@@ -94,7 +93,12 @@ export function Profile() {
           {userEvents.map((event) => (
             <div key={event.id} className="col-6 col-md-3 mb-4">
               <div className="mb-4">
-                <EventCard event={event} />
+                <Link
+                  to={`/event/view/${event.id}`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <EventCard event={event} />
+                </Link>
               </div>
             </div>
           ))}

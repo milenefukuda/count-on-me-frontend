@@ -27,7 +27,10 @@ export function EventCard({ event }) {
         {event.date}
       </div>
       <div className="card-body">
-        <Link to={`/event/${event._id}`}>
+        <Link
+          to={`/event/view/${event._id}`}
+          style={{ textDecoration: "none" }}
+        >
           <h3 className="card-title">{event.eventName}</h3>
         </Link>
         <p className="card-text">{event.local}</p>
