@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { api } from "../../api/api.js";
 import { Footer } from "../../components/Footer/index.js";
 import { LoggedInNavBar } from "../../components/LoggedInNavBar/index.js";
 
 export function CreateEvent() {
+  const [countdown, setCountdown] = useState(0);
+  const [intervalId, setIntervalId] = useState(null);
   const params = useParams();
   const navigate = useNavigate();
   const [form, setForm] = useState({
@@ -19,6 +21,25 @@ export function CreateEvent() {
     primaryColor: "",
     secundaryColor: "",
   });
+
+  const calculateCountDown = () => {
+    const eventDate = new Date(form.date + " " + form.time);
+    const eventTime = eventDate.getTime();
+    const now = new Date().getTime();
+    const timeRemaining = eventTime - now;
+    setCountdown(timeRemaining);
+
+    if (timeRemaining <= 0) {
+      clearInterval(intervalId);
+    }
+  };
+
+  useEffect(() => {
+    if (form.date && form.time && intervalId === null) {
+      const id = setInterval(calculateCountDown, 1000);
+      setIntervalId(id);
+    }
+  }, [form.date, form.time, intervalId]);
 
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -63,10 +84,10 @@ export function CreateEvent() {
                   <div className="mb-3">
                     <label htmlFor="date" className="form-label"></label>
                     <input
-                      type="text"
+                      type="date"
                       className="form-control"
                       id="formDate"
-                      placeholder="DD/MM/YYYY"
+                      placeholder="YYYY-MM-DD"
                       name="date"
                       value={form.date}
                       onChange={handleChange}
@@ -75,10 +96,10 @@ export function CreateEvent() {
                   <div className="mb-3">
                     <label htmlFor="time" className="form-label"></label>
                     <input
-                      type="text"
+                      type="time"
                       className="form-control"
                       id="formTime"
-                      placeholder="00:00:00"
+                      placeholder="HH:MM"
                       name="time"
                       value={form.time}
                       onChange={handleChange}

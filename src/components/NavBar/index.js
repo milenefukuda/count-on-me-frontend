@@ -95,12 +95,15 @@ export function NavBar() {
                     id={popoverId}
                     style={{
                       position: "absolute",
-                      left: "50%",
-                      transform: "translate(-50%, 0)",
-                      backgroundColor: "bg-dark",
+                      left: "auto",
+                      right: "0",
+                      top: "56px",
+                      transform: "translateX(0)",
+                      backgroundColor: "#ECECEC", // Cinza um pouco mais claro
                       color: "black",
                       padding: "10px",
-                      borderRadius: "5px",
+                      borderRadius: "0",
+                      border: "none", // Bordas nulas
                       maxWidth: "400px",
                       textAlign: "center",
                     }}

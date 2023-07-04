@@ -12,6 +12,12 @@ export function ViewEvent() {
   const [form, setForm] = useState({});
   const navigate = useNavigate();
   const [supporters, setSupporters] = useState(0);
+  const [countdown, setCountdown] = useState(0);
+  const days = Math.floor(countdown / (1000 * 60 * 60 * 24));
+  const hours = Math.floor(
+    (countdown % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+  );
+  const minutes = Math.floor((countdown % (1000 * 60 * 60)) / (1000 * 60));
 
   useEffect(() => {
     async function getEvent() {
@@ -24,7 +30,31 @@ export function ViewEvent() {
       }
     }
     getEvent();
-  }, [params._id]);
+  }, [params.id]);
+
+  useEffect(() => {
+    const calculateCountDown = () => {
+      const eventDate = new Date(event.date);
+      const eventTime = eventDate.getTime();
+      const now = new Date().getTime();
+      const timeRemaining = eventTime - now;
+      setCountdown(timeRemaining);
+
+      if (timeRemaining <= 0) {
+        clearInterval(interval);
+      }
+    };
+
+    const interval = setInterval(() => {
+      calculateCountDown();
+    }, 1000);
+
+    calculateCountDown();
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [event.date]);
 
   async function handleCountOnMe() {
     try {
@@ -82,6 +112,9 @@ export function ViewEvent() {
                 <button className="btn btn-dark" onClick={handleCountOnMe}>
                   Count on me!
                 </button>
+                <p>
+                  Countdown: {days} days, {hours} hours, {minutes} minutes
+                </p>
                 <p className="card-text">{supporters} supporters</p>
               </div>
             </div>
