@@ -36,6 +36,15 @@ export function Profile() {
     navigate("/");
   }
 
+  async function handleDelete(e) {
+    try {
+      await api.delete(`/event/delete/${e.target.value}`);
+      setReload(!reload);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   return (
     <>
       <LoggedInNavBar />
@@ -100,6 +109,9 @@ export function Profile() {
                   <EventCard event={event} />
                 </Link>
               </div>
+              <button value={event._id} onClick={handleDelete}>
+                delete event
+              </button>
             </div>
           ))}
         </div>

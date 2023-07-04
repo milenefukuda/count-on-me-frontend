@@ -80,7 +80,7 @@ export function ViewEvent() {
                 <p className="card-text">{event.local}</p>
                 <p className="card-text">{event.date}</p>
                 <button className="btn btn-dark" onClick={handleCountOnMe}>
-                  Count on me
+                  Count on me!
                 </button>
                 <p className="card-text">{supporters} supporters</p>
               </div>

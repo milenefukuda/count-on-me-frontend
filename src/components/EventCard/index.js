@@ -5,6 +5,7 @@ import { api } from "../../api/api.js";
 export function EventCard({ event }) {
   const [events, setEvents] = useState([]);
   const params = useParams();
+  const [reload, setReload] = useState(false);
 
   useEffect(() => {
     async function getMyEvents() {
