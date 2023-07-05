@@ -110,7 +110,7 @@ export function Profile() {
                 </Link>
               </div>
               <button value={event._id} onClick={handleDelete}>
-                delete event
+                Delete event
               </button>
             </div>
           ))}

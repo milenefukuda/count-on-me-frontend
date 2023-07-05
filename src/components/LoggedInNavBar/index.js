@@ -17,7 +17,7 @@ export function LoggedInNavBar() {
   const popoverId = "my-popover";
   const secondImageref = useRef(null);
   const popoverContent =
-    "About the Initiative: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut semper at sapien non facilisis. Etiam mauris est, tempor quis tempus eget, consequat vel mauris. Aliquam convallis finibus enim. Maecenas mattis laoreet massa, id faucibus diam vehicula at. Vestibulum feugiat augue ac mi mattis, vel imperdiet purus finibus. In efficitur arcu id felis elementum, in egestas ipsum viverra.";
+    "<strong>About the Initiative: </strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut semper at sapien non facilisis. Etiam mauris est, tempor quis tempus eget, consequat vel mauris. Aliquam convallis finibus enim. Maecenas mattis laoreet massa, id faucibus diam vehicula at. Vestibulum feugiat augue ac mi mattis, vel imperdiet purus finibus. In efficitur arcu id felis elementum, in egestas ipsum viverra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut semper at sapien non facilisis. Etiam mauris est, tempor quis tempus eget, consequat vel mauris. Aliquam convallis finibus enim. Maecenas mattis laoreet massa, id faucibus diam vehicula at. Vestibulum feugiat augue ac mi mattis, vel imperdiet purus finibus. In efficitur arcu id felis elementum, in egestas ipsum viverra.";
 
   const [referenceElement, setReferenceElement] = useState(null);
   const [popperElement, setPopperElement] = useState(null);
@@ -94,18 +94,24 @@ export function LoggedInNavBar() {
                     id={popoverId}
                     style={{
                       position: "absolute",
-                      left: "50%",
-                      transform: "translate(-50%, 0)",
-                      backgroundColor: "bg-dark",
+                      left: "auto",
+                      right: "0",
+                      top: "56px",
+                      transform: "translateX(0)",
+                      backgroundColor: "#ECECEC",
                       color: "black",
                       padding: "10px",
-                      borderRadius: "5px",
+                      borderRadius: "0",
+                      border: "none",
                       maxWidth: "400px",
                       textAlign: "center",
                     }}
                     {...attributes.popper}
                   >
-                    <div className="popover-body">{popoverContent}</div>
+                    <div
+                      className="popover-body"
+                      dangerouslySetInnerHTML={{ __html: popoverContent }}
+                    ></div>
                   </div>
                 )}
               </li>

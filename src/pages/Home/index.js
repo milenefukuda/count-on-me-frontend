@@ -1,5 +1,6 @@
 import { NavBar } from "../../components/NavBar/index.js";
 import { Footer } from "../../components/Footer/index.js";
+import { EventFeed } from "../../components/EventFeed/index.js";
 
 export function Home() {
   return (
@@ -20,6 +21,7 @@ export function Home() {
           </div>
         </div>
       </div>
+      <EventFeed />
       <Footer />
     </>
   );
