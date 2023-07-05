@@ -1,7 +1,7 @@
-import "bootstrap/dist/css/bootstrap.min.css";
 import { SearchBar } from "../SearchBar";
 import { useState, useEffect, useRef } from "react";
 import { usePopper } from "react-popper";
+import { EventFeed } from "../EventFeed/index.js";
 
 export function NavBar() {
   const [search, setSearch] = useState("");

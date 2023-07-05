@@ -1,6 +1,7 @@
 import { NavBar } from "../../components/NavBar/index.js";
 import { Footer } from "../../components/Footer/index.js";
 import { EventFeed } from "../../components/EventFeed/index.js";
+import { useState } from "react";
 
 export function Home() {
   return (

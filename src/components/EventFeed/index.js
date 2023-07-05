@@ -11,7 +11,10 @@ export function EventFeed(props) {
     async function getAllEvents() {
       try {
         const response = await api.get(
-          "http://localhost:4000/event/all-events"
+          "http://localhost:4000/event/all-events",
+          {
+            params: { search: search },
+          }
         );
         setEventFeed(response.data);
         setIsLoading(false);
@@ -66,6 +69,7 @@ export function EventFeed(props) {
                   </Link>
                   <p>Date: {event.date}</p>
                   <p>Location: {event.local}</p>
+                  <p>Supporters: {event.supporters}</p>
                 </div>
               ))}
             </div>
