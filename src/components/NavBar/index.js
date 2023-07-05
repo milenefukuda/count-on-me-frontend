@@ -50,7 +50,12 @@ export function NavBar() {
             <img
               src="https://res.cloudinary.com/dieqaoy0n/image/upload/v1686141967/Icon_bwb14d.png"
               alt="Logo"
-              style={{ width: "25px", height: "auto", marginRight: "10px" }}
+              style={{
+                width: "25px",
+                height: "auto",
+                marginRight: "10px",
+                marginLeft: "20px",
+              }}
             />
             You count on me!
           </a>

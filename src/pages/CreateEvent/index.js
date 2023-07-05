@@ -62,7 +62,7 @@ export function CreateEvent() {
   return (
     <>
       <LoggedInNavBar />
-      <div className="container my-4">
+      <div className="container my-4" style={{ paddingBottom: "100px" }}>
         <div className="row justify-content-center">
           <div className="col-md-6">
             <div className="card text-center">

@@ -6,7 +6,7 @@ export function Home() {
   return (
     <>
       <NavBar />
-      <div className="container ">
+      <div className="container">
         <div className="row">
           <div className="col-md-6 d-flex align-items-center justify-content-start">
             <h1>Manifest for the change you want to see in the world</h1>
@@ -21,7 +21,9 @@ export function Home() {
           </div>
         </div>
       </div>
-      <EventFeed />
+      <div style={{ marginBottom: "100px" }}>
+        <EventFeed />
+      </div>
       <Footer />
     </>
   );

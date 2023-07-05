@@ -36,7 +36,7 @@ export function EventFeed(props) {
               style={{
                 color: "#000000",
                 fontSize: "24px",
-                margin: "0",
+                margin: "30px",
                 marginBottom: "10px",
               }}
               className="my-auto"
@@ -56,7 +56,7 @@ export function EventFeed(props) {
                   key={event._id}
                   style={{
                     flex: "0 0 calc(33.33% - 20px)",
-                    margin: "10px",
+                    margin: "40px",
                     backgroundColor: event.secondaryColor,
                     color: event.primaryColor,
                   }}

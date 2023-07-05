@@ -48,7 +48,7 @@ export function Profile() {
   return (
     <>
       <LoggedInNavBar />
-      <div className="container">
+      <div className="container" style={{ marginBottom: "100px" }}>
         <div className="row">
           <div className="col-md-6">
             <div className="d-flex align-items-center justify-content-center h-100">
