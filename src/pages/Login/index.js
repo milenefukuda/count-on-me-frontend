@@ -66,7 +66,11 @@ export function Login() {
                     />
                   </div>
                   <div className="d-grid gap-2">
-                    <button type="submit" className="btn btn-dark">
+                    <button
+                      type="submit"
+                      className="btn btn-dark"
+                      //  style={{ backgroundColor: "#302E2F" }}
+                    >
                       Sign In
                     </button>
                   </div>
