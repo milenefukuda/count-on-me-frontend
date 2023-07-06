@@ -11,8 +11,8 @@ export function ViewEvent() {
   const [reload, setReload] = useState(false);
   const [form, setForm] = useState({});
   const navigate = useNavigate();
-  const [supporters, setSupporters] = useState(0);
   const [countdown, setCountdown] = useState(0);
+  const [supporters, setSupporters] = useState(0);
   const days = Math.floor(countdown / (1000 * 60 * 60 * 24));
   const hours = Math.floor(
     (countdown % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
@@ -31,6 +31,10 @@ export function ViewEvent() {
     }
     getEvent();
   }, [params.id]);
+
+  useEffect(() => {
+    setSupporters(event.supporters || 0);
+  }, [event]);
 
   useEffect(() => {
     const calculateCountDown = () => {
