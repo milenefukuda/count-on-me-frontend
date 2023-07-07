@@ -3,6 +3,7 @@ import { Footer } from "../../components/Footer";
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { api } from "../../api/api.js";
+import { categoryIcons } from "../../components/Icons/index.js";
 
 export function ViewEvent() {
   const params = useParams();
@@ -119,7 +120,12 @@ export function ViewEvent() {
                 <p>
                   Countdown: {days} days, {hours} hours, {minutes} minutes
                 </p>
-                <p className="card-text">{supporters} supporters</p>
+                {event.categories && (
+                  <img
+                    src={categoryIcons[event.categories][event.primaryColor]}
+                    alt="Category Icon"
+                  />
+                )}
               </div>
             </div>
           </div>
