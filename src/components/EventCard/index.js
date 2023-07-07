@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { api } from "../../api/api.js";
+import { categoryIcons } from "../Icons/index.js";
 
 export function EventCard({ event }) {
   const [events, setEvents] = useState([]);
@@ -36,6 +37,12 @@ export function EventCard({ event }) {
         </Link>
         <p className="card-text">{event.local}</p>
         <p className="card-text">Supporters: {event.supporters}</p>
+        {event.categories && (
+          <img
+            src={categoryIcons[event.categories][event.primaryColor]}
+            alt="Category Icon"
+          />
+        )}
       </div>
     </div>
   );
