@@ -4,12 +4,20 @@ import { api } from "../../api/api.js";
 import { Footer } from "../../components/Footer/index.js";
 import { LoggedInNavBar } from "../../components/LoggedInNavBar/index.js";
 import { categoryIcons } from "../../components/Icons/index.js";
+import { PreviewCard } from "../../components/PreviewCard/index.js";
 
 export function CreateEvent() {
   const [countdown, setCountdown] = useState(0);
   const [intervalId, setIntervalId] = useState(null);
   const params = useParams();
   const navigate = useNavigate();
+  const [previewCard, setPreviewCard] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [previewColors, setPreviewColors] = useState({
+    primaryColor: "",
+    secondaryColor: "",
+  });
+
   const [form, setForm] = useState({
     eventName: "",
     date: "",
@@ -43,7 +51,27 @@ export function CreateEvent() {
   }, [form.date, form.time, intervalId]);
 
   function handleChange(e) {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+    if (name === "categories") {
+      setSelectedCategory(value);
+    } else if (name === "primaryColor" || name === "secondaryColor") {
+      setPreviewColors({ ...previewColors, [name]: value });
+    }
+  }
+
+  function updatePreviewCard(name, value) {
+    if (
+      name === "primaryColor" ||
+      name === "secondaryColor" ||
+      name === "category"
+    ) {
+      setPreviewCard({
+        primaryColor: name === "primaryColor" ? value : form.primaryColor,
+        secondaryColor: name === "secondaryColor" ? value : form.secondaryColor,
+        category: name === "category" ? value : form.category,
+      });
+    }
   }
 
   async function handleSubmit(e) {
@@ -547,6 +575,11 @@ export function CreateEvent() {
                       </label>
                     </div>
                   </div>
+                  <PreviewCard
+                    primaryColor={previewColors.primaryColor}
+                    secondaryColor={previewColors.secondaryColor}
+                    category={selectedCategory}
+                  />
 
                   <div className="d-grid gap-2">
                     <button type="submit" className="btn btn-dark">
