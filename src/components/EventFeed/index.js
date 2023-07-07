@@ -1,6 +1,7 @@
 import { api } from "../../api/api.js";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { categoryIcons } from "../Icons/index.js";
 
 export function EventFeed(props) {
   const { search } = props;
@@ -70,6 +71,12 @@ export function EventFeed(props) {
                   <p>Date: {event.date}</p>
                   <p>Location: {event.local}</p>
                   <p>Supporters: {event.supporters}</p>
+                  {event.categories && (
+                    <img
+                      src={categoryIcons[event.categories][event.primaryColor]}
+                      alt="Category Icon"
+                    />
+                  )}
                 </div>
               ))}
             </div>
