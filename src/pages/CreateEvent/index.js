@@ -119,15 +119,14 @@ export function CreateEvent() {
                     />
                   </div>
                   <div className="mb-3">
-                    <label htmlFor="categories" className="form-label">
-                      Category
-                    </label>
+                    <label htmlFor="categories" className="form-label"></label>
                     <select
                       className="form-control"
                       id="formCategories"
                       name="categories"
                       value={form.categories}
                       onChange={handleChange}
+                      style={{ backgroundColor: "white" }}
                     >
                       <option value="">Select a category</option>
                       {Object.keys(categoryIcons).map((category) => (
@@ -137,6 +136,7 @@ export function CreateEvent() {
                       ))}
                     </select>
                   </div>
+
                   <div className="mb-3">
                     <label htmlFor="description" className="form-label"></label>
                     <input
@@ -164,182 +164,386 @@ export function CreateEvent() {
                       onChange={handleChange}
                     />
                   </div>
-                  <div className="mb-3">
+                  <div
+                    className="mb-3"
+                    style={{ display: "flex", flexWrap: "wrap" }}
+                  >
                     <label htmlFor="primaryColor" className="form-label">
-                      Primary Color
+                      Choose the main color
                     </label>
-                    <div>
+                    <div
+                      className={`color-option ${
+                        form.primaryColor === "#8344AD" ? "selected" : ""
+                      }`}
+                      style={{
+                        backgroundColor: "#8344AD",
+                        marginRight: "10px",
+                      }}
+                      onClick={() =>
+                        handleChange({
+                          target: { name: "primaryColor", value: "#8344AD" },
+                        })
+                      }
+                    >
                       <label>
-                        <input
-                          type="radio"
-                          name="primaryColor"
-                          value="#8344AD"
-                          checked={form.primaryColor === "#8344AD"}
-                          onChange={handleChange}
-                        ></input>
-                        #8344AD
+                        <span
+                          style={{
+                            backgroundColor: "#8344AD",
+                            width: "20px",
+                            height: "20px",
+                            display: "inline-block",
+                            marginRight: "5px",
+                          }}
+                        ></span>
                       </label>
                     </div>
-
-                    <div>
+                    <div
+                      className={`color-option ${
+                        form.primaryColor === "#DB4759" ? "selected" : ""
+                      }`}
+                      style={{
+                        backgroundColor: "#DB4759",
+                        marginRight: "10px",
+                      }}
+                      onClick={() =>
+                        handleChange({
+                          target: { name: "primaryColor", value: "#DB4759" },
+                        })
+                      }
+                    >
                       <label>
-                        <input
-                          type="radio"
-                          name="primaryColor"
-                          value="#DB4759"
-                          checked={form.primaryColor === "#DB4759"}
-                          onChange={handleChange}
-                        />{" "}
-                        #DB4759
+                        <span
+                          style={{
+                            backgroundColor: " #DB4759",
+                            width: "20px",
+                            height: "20px",
+                            display: "inline-block",
+                            marginRight: "5px",
+                          }}
+                        ></span>
                       </label>
                     </div>
-                    <div>
+                    <div
+                      className={`color-option ${
+                        form.primaryColor === "#EA7238" ? "selected" : ""
+                      }`}
+                      style={{
+                        backgroundColor: "#EA7238",
+                        marginRight: "10px",
+                      }}
+                      onClick={() =>
+                        handleChange({
+                          target: { name: "primaryColor", value: "#EA7238" },
+                        })
+                      }
+                    >
                       <label>
-                        <input
-                          type="radio"
-                          name="primaryColor"
-                          value="#EA7238"
-                          checked={form.primaryColor === "#EA7238"}
-                          onChange={handleChange}
-                        />{" "}
-                        #EA7238
+                        {" "}
+                        <span
+                          style={{
+                            backgroundColor: " #EA7238",
+                            width: "20px",
+                            height: "20px",
+                            display: "inline-block",
+                            marginRight: "5px",
+                          }}
+                        ></span>
                       </label>
                     </div>
-                    <div>
+                    <div
+                      className={`color-option ${
+                        form.primaryColor === "#33658A" ? "selected" : ""
+                      }`}
+                      style={{
+                        backgroundColor: "#33658A",
+                        marginRight: "10px",
+                      }}
+                      onClick={() =>
+                        handleChange({
+                          target: { name: "primaryColor", value: "#33658A" },
+                        })
+                      }
+                    >
                       <label>
-                        <input
-                          type="radio"
-                          name="primaryColor"
-                          value="#33658A"
-                          checked={form.primaryColor === "#33658A"}
-                          onChange={handleChange}
-                        />{" "}
-                        #33658A
+                        {" "}
+                        <span
+                          style={{
+                            backgroundColor: "#33658A",
+                            width: "20px",
+                            height: "20px",
+                            display: "inline-block",
+                            marginRight: "5px",
+                          }}
+                        ></span>
                       </label>
                     </div>
-                    <div>
+                    <div
+                      className={`color-option ${
+                        form.primaryColor === "#0A9396" ? "selected" : ""
+                      }`}
+                      style={{
+                        backgroundColor: "#0A9396",
+                        marginRight: "10px",
+                      }}
+                      onClick={() =>
+                        handleChange({
+                          target: { name: "primaryColor", value: "#0A9396" },
+                        })
+                      }
+                    >
                       <label>
-                        <input
-                          type="radio"
-                          name="primaryColor"
-                          value="#0A9396"
-                          checked={form.primaryColor === "#0A9396"}
-                          onChange={handleChange}
-                        />{" "}
-                        #0A9396
+                        {" "}
+                        <span
+                          style={{
+                            backgroundColor: " #0A9396",
+                            width: "20px",
+                            height: "20px",
+                            display: "inline-block",
+                            marginRight: "5px",
+                          }}
+                        ></span>
                       </label>
                     </div>
-                    <div>
+                    <div
+                      className={`color-option ${
+                        form.primaryColor === "#2D6A4F" ? "selected" : ""
+                      }`}
+                      style={{
+                        backgroundColor: "#2D6A4F",
+                        marginRight: "10px",
+                      }}
+                      onClick={() =>
+                        handleChange({
+                          target: { name: "primaryColor", value: "#2D6A4F" },
+                        })
+                      }
+                    >
                       <label>
-                        <input
-                          type="radio"
-                          name="primaryColor"
-                          value="#2D6A4F"
-                          checked={form.primaryColor === "#2D6A4F"}
-                          onChange={handleChange}
-                        />{" "}
-                        #2D6A4F
+                        <span
+                          style={{
+                            backgroundColor: " #2D6A4F",
+                            width: "20px",
+                            height: "20px",
+                            display: "inline-block",
+                            marginRight: "5px",
+                          }}
+                        ></span>
                       </label>
                     </div>
-                    <div>
+                    <div
+                      className={`color-option ${
+                        form.primaryColor === "#626C3E" ? "selected" : ""
+                      }`}
+                      style={{
+                        backgroundColor: "#626C3E",
+                        marginRight: "10px",
+                      }}
+                      onClick={() =>
+                        handleChange({
+                          target: { name: "primaryColor", value: "#626C3E" },
+                        })
+                      }
+                    >
                       <label>
-                        <input
-                          type="radio"
-                          name="primaryColor"
-                          value="#626C3E"
-                          checked={form.primaryColor === "#626C3E"}
-                          onChange={handleChange}
-                        />{" "}
-                        #626C3E
+                        <span
+                          style={{
+                            backgroundColor: "#626C3E",
+                            width: "20px",
+                            height: "20px",
+                            display: "inline-block",
+                            marginRight: "5px",
+                          }}
+                        ></span>
                       </label>
                     </div>
                   </div>
-                  <div className="mb-3">
+                  <div
+                    className="mb-3"
+                    style={{ display: "flex", flexWrap: "wrap" }}
+                  >
                     <label htmlFor="secondaryColor" className="form-label">
-                      Secondary Color
+                      Choose the second color
                     </label>
-                    <div>
+                    <div
+                      className={`color-option ${
+                        form.secondaryColorColor === "#DC75B3" ? "selected" : ""
+                      }`}
+                      style={{
+                        backgroundColor: "#DC75B3",
+                        marginRight: "10px",
+                      }}
+                      onClick={() =>
+                        handleChange({
+                          target: { name: "secondaryColor", value: "#DC75B3" },
+                        })
+                      }
+                    >
                       <label>
-                        <input
-                          type="radio"
-                          name="secondaryColor"
-                          value="#DC75B3"
-                          checked={form.secondaryColor === "#DC75B3"}
-                          onChange={handleChange}
-                        />{" "}
-                        #DC75B3
+                        <span
+                          style={{
+                            backgroundColor: " #DC75B3",
+                            width: "20px",
+                            height: "20px",
+                            display: "inline-block",
+                            marginRight: "5px",
+                          }}
+                        ></span>
                       </label>
                     </div>
-                    <div>
+                    <div
+                      className={`color-option ${
+                        form.secondaryColor === "#F997BC" ? "selected" : ""
+                      }`}
+                      style={{
+                        backgroundColor: "#F997BC",
+                        marginRight: "10px",
+                      }}
+                      onClick={() =>
+                        handleChange({
+                          target: { name: "secondaryColor", value: "#F997BC" },
+                        })
+                      }
+                    >
                       <label>
-                        <input
-                          type="radio"
-                          name="secondaryColor"
-                          value="#F997BC"
-                          checked={form.secondaryColor === "#F997BC"}
-                          onChange={handleChange}
-                        />{" "}
-                        #F997BC
+                        <span
+                          style={{
+                            backgroundColor: "#F997BC",
+                            width: "20px",
+                            height: "20px",
+                            display: "inline-block",
+                            marginRight: "5px",
+                          }}
+                        ></span>
                       </label>
                     </div>
-                    <div>
+                    <div
+                      className={`color-option ${
+                        form.secondaryColorColor === "#FF9A6C" ? "selected" : ""
+                      }`}
+                      style={{
+                        backgroundColor: "#FF9A6C",
+                        marginRight: "10px",
+                      }}
+                      onClick={() =>
+                        handleChange({
+                          target: { name: "secondaryColor", value: "#FF9A6C" },
+                        })
+                      }
+                    >
                       <label>
-                        <input
-                          type="radio"
-                          name="secondaryColor"
-                          value="#FF9A6C"
-                          checked={form.secondaryColor === "#FF9A6C"}
-                          onChange={handleChange}
-                        />{" "}
-                        #FF9A6C
+                        <span
+                          style={{
+                            backgroundColor: " #FF9A6C",
+                            width: "20px",
+                            height: "20px",
+                            display: "inline-block",
+                            marginRight: "5px",
+                          }}
+                        ></span>
                       </label>
                     </div>
-                    <div>
+                    <div
+                      className={`color-option ${
+                        form.secondaryColorColor === "#79C3E5" ? "selected" : ""
+                      }`}
+                      style={{
+                        backgroundColor: "#79C3E5",
+                        marginRight: "10px",
+                      }}
+                      onClick={() =>
+                        handleChange({
+                          target: { name: "secondaryColor", value: "#79C3E5" },
+                        })
+                      }
+                    >
                       <label>
-                        <input
-                          type="radio"
-                          name="secondaryColor"
-                          value="#79C3E5"
-                          checked={form.secondaryColor === "#79C3E5"}
-                          onChange={handleChange}
-                        />{" "}
-                        #79C3E5
+                        <span
+                          style={{
+                            backgroundColor: " #79C3E5",
+                            width: "20px",
+                            height: "20px",
+                            display: "inline-block",
+                            marginRight: "5px",
+                          }}
+                        ></span>
                       </label>
                     </div>
-                    <div>
+                    <div
+                      className={`color-option ${
+                        form.secondaryColorColor === "#CBF3F0" ? "selected" : ""
+                      }`}
+                      style={{
+                        backgroundColor: "#CBF3F0",
+                        marginRight: "10px",
+                      }}
+                      onClick={() =>
+                        handleChange({
+                          target: { name: "secondaryColor", value: "#CBF3F0" },
+                        })
+                      }
+                    >
                       <label>
-                        <input
-                          type="radio"
-                          name="secondaryColor"
-                          value="#CBF3F0"
-                          checked={form.secondaryColor === "#CBF3F0"}
-                          onChange={handleChange}
-                        />{" "}
-                        #CBF3F0
+                        <span
+                          style={{
+                            backgroundColor: " #CBF3F0",
+                            width: "20px",
+                            height: "20px",
+                            display: "inline-block",
+                            marginRight: "5px",
+                          }}
+                        ></span>
                       </label>
                     </div>
-                    <div>
+                    <div
+                      className={`color-option ${
+                        form.secondaryColor === "#90BE6D" ? "selected" : ""
+                      }`}
+                      style={{
+                        backgroundColor: "#90BE6D",
+                        marginRight: "10px",
+                      }}
+                      onClick={() =>
+                        handleChange({
+                          target: { name: "secondaryColor", value: "#90BE6D" },
+                        })
+                      }
+                    >
                       <label>
-                        <input
-                          type="radio"
-                          name="secondaryColor"
-                          value="#90BE6D"
-                          checked={form.secondaryColor === "#90BE6D"}
-                          onChange={handleChange}
-                        />{" "}
-                        #90BE6D
+                        <span
+                          style={{
+                            backgroundColor: " #90BE6D",
+                            width: "20px",
+                            height: "20px",
+                            display: "inline-block",
+                            marginRight: "5px",
+                          }}
+                        ></span>
                       </label>
                     </div>
-                    <div>
+                    <div
+                      className={`color-option ${
+                        form.secondaryColor === "#FFBE0B" ? "selected" : ""
+                      }`}
+                      style={{
+                        backgroundColor: "#FFBE0B",
+                        marginRight: "10px",
+                      }}
+                      onClick={() =>
+                        handleChange({
+                          target: { name: "secondaryColor", value: "#FFBE0B" },
+                        })
+                      }
+                    >
                       <label>
-                        <input
-                          type="radio"
-                          name="secondaryColor"
-                          value="#FFBE0B"
-                          checked={form.secondaryColor === "#FFBE0B"}
-                          onChange={handleChange}
-                        />{" "}
-                        #FFBE0B
+                        <span
+                          style={{
+                            backgroundColor: " #FFBE0B",
+                            width: "20px",
+                            height: "20px",
+                            display: "inline-block",
+                            marginRight: "5px",
+                          }}
+                        ></span>
                       </label>
                     </div>
                   </div>
