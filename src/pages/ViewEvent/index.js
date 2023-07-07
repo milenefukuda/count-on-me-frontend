@@ -120,6 +120,7 @@ export function ViewEvent() {
                 <p>
                   Countdown: {days} days, {hours} hours, {minutes} minutes
                 </p>
+                <p className="card-text">{supporters} supporters</p>
                 {event.categories && (
                   <img
                     src={categoryIcons[event.categories][event.primaryColor]}
