@@ -17,6 +17,7 @@ export function CreateEvent() {
     primaryColor: "",
     secondaryColor: "",
   });
+  const [selectedIcon, setSelectedIcon] = useState(null);
 
   const [form, setForm] = useState({
     eventName: "",
