@@ -11,6 +11,7 @@ import { Profile } from "./pages/Profile/index.js";
 import { CreateEvent } from "./pages/CreateEvent/index.js";
 import { ViewEvent } from "./pages/ViewEvent/index.js";
 import { ProtectedRoute } from "./components/ProtectedRoutes/index.js";
+import { ThankYouMessage } from "./components/ThankYou/index.js";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="/user/signup" element={<Signup />} />
             <Route path="/user/login" element={<Login />} />
             <Route path="/event/view/:id" element={<ViewEvent />} />
+            <Route path="/message/thankYouWall" element={<ThankYouMessage />} />
             <Route
               path="/user/profile"
               element={<ProtectedRoute component={Profile} />}
