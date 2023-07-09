@@ -97,46 +97,67 @@ export function ViewEvent() {
   return (
     <>
       <LoggedInNavBar />
-      <div className="container">
-        <div className="row">
-          <div className="col-md-6">
-            <div className="card">
-              <div
-                className="card-body"
-                style={{ backgroundColor: event.secondaryColor }}
-              >
-                <h2
-                  className="card-title"
-                  style={{
-                    backgroundColor: event.primaryColor,
-                    color: "white",
-                  }}
+      <div
+        className="container"
+        style={{
+          height: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          minWidth: "100%",
+        }}
+      >
+        <div className="row" style={{ flex: 1, marginBottom: "20px" }}>
+          <div
+            className="col-md-6"
+            style={{ display: "flex", flexDirection: "column" }}
+          >
+            {/* Conteúdo da Div 1 */}
+            <div
+              style={{
+                backgroundColor: event.primaryColor,
+                position: "relative",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginBottom: "-20px",
+              }}
+            >
+              <div className="card">
+                <div
+                  className="card-body"
+                  style={{ backgroundColor: event.primaryColor }}
                 >
-                  {event.eventName}
-                </h2>
-                <p className="card-text">{event.local}</p>
-                <p className="card-text">{event.date}</p>
-                <button className="btn btn-dark" onClick={handleCountOnMe}>
-                  Count on me!
-                </button>
-                <p>
-                  Countdown: {days} days, {hours} hours, {minutes} minutes
-                </p>
-                <p className="card-text">{supporters} supporters</p>
-                {event.categories && (
-                  <img
-                    src={categoryIcons[event.categories][event.primaryColor]}
-                    alt="Category Icon"
-                  />
-                )}
+                  <h2
+                    className="card-title"
+                    style={{
+                      backgroundColor: event.primaryColor,
+                      color: "white",
+                      fontSize: "80px",
+                      textAlign: "center",
+                      marginBottom: "20px",
+                    }}
+                  >
+                    {event.eventName}
+                  </h2>
+                </div>
               </div>
-            </div>
-          </div>
-          <div className="col-md-6">
-            <div className="col-md-6">
-              <div className="vertical-menu">
+              {/* Botões de Menu */}
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "flex-start",
+                  position: "absolute",
+                  top: 0,
+                  right: 0,
+                  padding: "20px",
+                }}
+              >
                 <button
-                  className={menuContent === "description" ? "active" : ""}
+                  className={`menuContent ${
+                    menuContent === "description" ? "active" : ""
+                  }`}
                   onClick={() => setMenuContent("description")}
                 >
                   <svg
@@ -144,15 +165,16 @@ export function ViewEvent() {
                     width="16"
                     height="16"
                     fill="currentColor"
-                    class="bi bi-info-circle"
+                    className="bi bi-info-circle"
                     viewBox="0 0 16 16"
                   >
-                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                    <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
-                  </svg>{" "}
+                    {/* ...código do ícone... */}
+                  </svg>
                 </button>
                 <button
-                  className={menuContent === "location" ? "active" : ""}
+                  className={`menuContent ${
+                    menuContent === "location" ? "active" : ""
+                  }`}
                   onClick={() => setMenuContent("location")}
                 >
                   <svg
@@ -160,21 +182,17 @@ export function ViewEvent() {
                     width="16"
                     height="16"
                     fill="currentColor"
-                    class="bi bi-pin-map-fill"
+                    className="bi bi-pin-map-fill"
                     viewBox="0 0 16 16"
+                    style={{ color: "black" }}
                   >
-                    <path
-                      fill-rule="evenodd"
-                      d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8l3-4z"
-                    />
-                    <path
-                      fill-rule="evenodd"
-                      d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"
-                    />
-                  </svg>{" "}
+                    {/* ...código do ícone... */}
+                  </svg>
                 </button>
                 <button
-                  className={menuContent === "messages" ? "active" : ""}
+                  className={`menuContent ${
+                    menuContent === "messages" ? "active" : ""
+                  }`}
                   onClick={() => setMenuContent("messages")}
                 >
                   <svg
@@ -182,35 +200,111 @@ export function ViewEvent() {
                     width="16"
                     height="16"
                     fill="currentColor"
-                    class="bi bi-chat-heart"
+                    className="bi bi-chat-heart"
                     viewBox="0 0 16 16"
                   >
-                    <path
-                      fill-rule="evenodd"
-                      d="M2.965 12.695a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6c0 3.193-3.004 6-7 6a8.06 8.06 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a10.97 10.97 0 0 0 .398-2Zm-.8 3.108.02-.004c1.83-.363 2.948-.842 3.468-1.105A9.06 9.06 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.437 10.437 0 0 1-.524 2.318l-.003.011a10.722 10.722 0 0 1-.244.637c-.079.186.074.394.273.362a21.673 21.673 0 0 0 .693-.125ZM8 5.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"
-                    />
-                  </svg>{" "}
+                    {/* ...código do ícone... */}
+                  </svg>
                 </button>
               </div>
-              {menuContent === "description" && (
-                <div className="menu-content">
-                  <h3>About this event</h3>
-                  <p>{event.description}</p>
-                </div>
-              )}
-              {menuContent === "location" && (
-                <div className="menu-content">
-                  <h3>Event location</h3>
-                  <p>{event.local}</p>
-                </div>
-              )}
-              {menuContent === "messages" && (
-                <div className="menu-content">
-                  <h3>Thank you messages</h3>
-                  <ThankYouMessage />
-                </div>
-              )}
             </div>
+            <div
+              style={{
+                backgroundColor: event.secondaryColor,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                padding: "20px",
+                flex: 1,
+              }}
+            >
+              {/* Conteúdo da Div 2 */}
+              <div style={{ display: "flex", alignItems: "center" }}>
+                {event.categories && (
+                  <div style={{ marginRight: "20px" }}>
+                    <img
+                      src={categoryIcons[event.categories][event.primaryColor]}
+                      alt="Category Icon"
+                    />
+                  </div>
+                )}
+                <div>
+                  <p style={{ fontWeight: "bold", fontSize: "24px" }}>
+                    {event.local}
+                  </p>
+                  <p>{event.date}</p>
+
+                  <div style={{ marginTop: "10px" }}>
+                    <p>
+                      Countdown:{" "}
+                      <span
+                        style={{
+                          border: `2px solid ${event.primaryColor}`,
+                          borderRadius: "5px",
+                          padding: "5px",
+                          marginRight: "5px",
+                        }}
+                      >
+                        {days} days
+                      </span>
+                      <span
+                        style={{
+                          border: `2px solid ${event.primaryColor}`,
+                          borderRadius: "5px",
+                          padding: "5px",
+                          marginRight: "5px",
+                        }}
+                      >
+                        {hours} hours
+                      </span>
+                      <span
+                        style={{
+                          border: `2px solid ${event.primaryColor}`,
+                          borderRadius: "5px",
+                          padding: "5px",
+                        }}
+                      >
+                        {minutes} minutes
+                      </span>
+                    </p>
+                  </div>
+                  <p>{supporters} supporters</p>
+                  <button className="btn btn-primary" onClick={handleCountOnMe}>
+                    Count on me
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-6" style={{ backgroundColor: "white" }}>
+            {/* Conteúdo da Div 3 */}
+
+            <p
+              style={{
+                color: "black",
+                backgroundColor: "white",
+                padding: "0px",
+              }}
+            ></p>
+            {menuContent === "description" && (
+              <div className="menu-content">
+                <h3>About this event</h3>
+                <p>{event.description}</p>
+              </div>
+            )}
+            {menuContent === "location" && (
+              <div className="menu-content">
+                <h3>Event location</h3>
+                <p>{event.local}</p>
+              </div>
+            )}
+            {menuContent === "messages" && (
+              <div className="menu-content">
+                <h3>Thank you messages</h3>
+                <ThankYouMessage />
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -56,27 +56,32 @@ export function EventFeed(props) {
             >
               {eventFeed.map((event) => (
                 <div
-                  className="event-item col-6 col-md-3 mb-4"
-                  key={event._id}
+                  className="card"
                   style={{
-                    flex: "0 0 calc(33.33% - 20px)",
-                    margin: "40px",
+                    width: "18rem",
+                    margin: "10px",
                     backgroundColor: event.secondaryColor,
                     color: event.primaryColor,
                   }}
+                  key={event._id}
                 >
-                  <Link to={`/event/view/${event._id}`}>
-                    <h2>{event.eventName}</h2>
-                  </Link>
-                  <p>Date: {event.date}</p>
-                  <p>Location: {event.local}</p>
-                  <p>Supporters: {event.supporters}</p>
-                  {event.categories && (
-                    <img
-                      src={categoryIcons[event.categories][event.primaryColor]}
-                      alt="Category Icon"
-                    />
-                  )}
+                  <img
+                    src={categoryIcons[event.categories][event.primaryColor]}
+                    className="card-img-top"
+                    alt="Category Icon"
+                  />
+                  <div className="card-body">
+                    <h5 className="card-title">{event.eventName}</h5>
+                    <p className="card-text">Date: {event.date}</p>
+                    <p className="card-text">Location: {event.local}</p>
+                    <p className="card-text">Supporters: {event.supporters}</p>
+                    <Link
+                      to={`/event/view/${event._id}`}
+                      className="btn btn-primary"
+                    >
+                      {event.local}
+                    </Link>
+                  </div>
                 </div>
               ))}
             </div>
