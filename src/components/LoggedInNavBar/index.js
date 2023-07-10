@@ -66,55 +66,9 @@ export function LoggedInNavBar() {
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
-              <li className="nav-item" style={{ marginRight: "10px" }}>
+              {/* <li className="nav-item" style={{ marginRight: "10px" }}>
                 <SearchBar changeSearch={changeSearch} />
-              </li>
-              <li className="nav-item">
-                <span
-                  className="d-inline-block"
-                  tabIndex="0"
-                  ref={secondImageref}
-                  onMouseEnter={togglePopover}
-                  onMouseLeave={togglePopover}
-                >
-                  <img
-                    src="https://res.cloudinary.com/dieqaoy0n/image/upload/v1686321175/Vector_xzi709.svg"
-                    alt="Link"
-                    style={{
-                      width: "25px",
-                      height: "auto",
-                      marginRight: "10px",
-                    }}
-                  />
-                </span>
-                {showPopover && (
-                  <div
-                    className="popover bs-popover-bottom show"
-                    role="tooltip"
-                    id={popoverId}
-                    style={{
-                      position: "absolute",
-                      left: "auto",
-                      right: "0",
-                      top: "56px",
-                      transform: "translateX(0)",
-                      backgroundColor: "#ECECEC",
-                      color: "black",
-                      padding: "10px",
-                      borderRadius: "0",
-                      border: "none",
-                      maxWidth: "400px",
-                      textAlign: "center",
-                    }}
-                    {...attributes.popper}
-                  >
-                    <div
-                      className="popover-body"
-                      dangerouslySetInnerHTML={{ __html: popoverContent }}
-                    ></div>
-                  </div>
-                )}
-              </li>
+              </li> */}
 
               <li className="nav-item">
                 <a href="/user/profile">

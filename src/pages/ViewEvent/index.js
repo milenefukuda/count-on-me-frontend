@@ -120,8 +120,8 @@ export function ViewEvent() {
       >
         <div className="row" style={{ flex: 1, marginBottom: "20px" }}>
           <div
-            className="col-md-6"
-            style={{ display: "flex", flexDirection: "column" }}
+            className="col-md-6 pl-0"
+            style={{ display: "flex", flexDirection: "column", paddingLeft: 0 }}
           >
             {/* Conteúdo da Div 1 */}
             <div

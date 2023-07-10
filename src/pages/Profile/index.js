@@ -1,10 +1,10 @@
 import { api } from "../../api/api.js";
-import { LoggedInNavBar } from "../../components/LoggedInNavBar/index.js";
 import { Footer } from "../../components/Footer";
 import { useState, useEffect, useContext } from "react";
 import { useNavigate, Link, useParams } from "react-router-dom";
 import { AuthContext } from "../../contexts/authContext.js";
 import { EventCard } from "../../components/EventCard/index.js";
+import { ProfileNavBar } from "../../components/ProfileNavBar/index.js";
 
 export function Profile() {
   const { setLoggedInUser } = useContext(AuthContext);
@@ -30,12 +30,6 @@ export function Profile() {
     fetchUser();
   }, [reload]);
 
-  function handleLogOut() {
-    localStorage.removeItem("loggedInUser");
-    setLoggedInUser(null);
-    navigate("/");
-  }
-
   async function handleDelete(e) {
     try {
       await api.delete(`/event/delete/${e.target.value}`);
@@ -47,7 +41,7 @@ export function Profile() {
 
   return (
     <>
-      <LoggedInNavBar />
+      <ProfileNavBar />
       <div className="container" style={{ marginBottom: "100px" }}>
         <div className="row">
           <div className="col-md-6">
@@ -63,9 +57,7 @@ export function Profile() {
                 >
                   Hello, {user.name}
                 </h1>
-                <button className="btn btn-dark mt-2" onClick={handleLogOut}>
-                  Log Out
-                </button>
+
                 <Link to="/event/create" className="btn btn-dark mt-2">
                   Create Event
                 </Link>
@@ -109,10 +101,10 @@ export function Profile() {
                   <EventCard event={event} />
                 </Link>
                 <button
-                  className="btn btn-danger"
+                  className="btn btn-secondary"
                   value={event._id}
                   onClick={handleDelete}
-                  style={{ width: "50%", marginTop: "0" }}
+                  style={{ width: "50%", marginBottom: "10px" }}
                 >
                   Delete event
                 </button>

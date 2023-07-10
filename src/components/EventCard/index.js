@@ -77,10 +77,13 @@ export function EventCard({ event }) {
             padding: "0 0 5px 0",
           }}
         >
-          <p className="card-text">Supporters: {event.supporters}</p>
+          <p className="card-text">Participants: {event.supporters}</p>
         </div>
       </Link>
-      <div className="card-body" style={{ marginLeft: "10px" }}></div>
+      <div
+        className="card-body"
+        style={{ marginLeft: "10px", marginBottom: "0" }}
+      ></div>
     </div>
   );
 }
