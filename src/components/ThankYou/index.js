@@ -41,28 +41,46 @@ export function ThankYouMessage() {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          placeholder="name"
-          value={form.name}
-          onChange={(e) =>
-            setForm({ ...form, [e.target.name]: e.target.value })
-          }
-        />
-        <textarea
-          name="userMessage"
-          placeholder="message"
-          value={form.userMessage}
-          onChange={(e) =>
-            setForm({ ...form, [e.target.name]: e.target.value })
-          }
-        ></textarea>
-        <button type="submit">Submit</button>
+        <div style={{ marginBottom: "10px" }}>
+          <input
+            type="text"
+            name="name"
+            placeholder="Name"
+            value={form.name}
+            onChange={(e) =>
+              setForm({ ...form, [e.target.name]: e.target.value })
+            }
+          />
+        </div>
+        <div style={{ marginBottom: "10px" }}>
+          <textarea
+            name="userMessage"
+            placeholder="Message"
+            value={form.userMessage}
+            onChange={(e) =>
+              setForm({ ...form, [e.target.name]: e.target.value })
+            }
+          ></textarea>
+        </div>
+        <button
+          className="btn btn-primary"
+          type="submit"
+          style={{ marginBottom: "10px" }}
+        >
+          Submit
+        </button>
       </form>
       <div>
         {messages.map((message) => (
-          <div key={message.id}>
+          <div
+            key={message.id}
+            style={{
+              border: "1px solid #ccc",
+              borderRadius: "5px",
+              padding: "10px",
+              marginBottom: "10px",
+            }}
+          >
             <p>Name: {message.name}</p>
             <p>Message: {message.userMessage}</p>
           </div>

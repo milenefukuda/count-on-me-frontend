@@ -84,7 +84,7 @@ export function Profile() {
           </div>
         </div>
         <div className="row">
-          <div className="col-md-12 d-flex justify-content">
+          <div className="col-md-12 d-flex justify-content-between">
             <h1
               style={{
                 color: "#000000",
@@ -100,22 +100,28 @@ export function Profile() {
         </div>
         <div className="row event-container">
           {userEvents.map((event) => (
-            <div key={event.id} className="col-6 col-md-3 mb-4">
-              <div className="mb-4">
+            <div key={event.id} className="col-md-4">
+              <div className="d-flex flex-column">
                 <Link
                   to={`/event/view/${event.id}`}
                   style={{ textDecoration: "none" }}
                 >
                   <EventCard event={event} />
                 </Link>
+                <button
+                  className="btn btn-danger"
+                  value={event._id}
+                  onClick={handleDelete}
+                  style={{ width: "50%", marginTop: "0" }}
+                >
+                  Delete event
+                </button>
               </div>
-              <button value={event._id} onClick={handleDelete}>
-                Delete event
-              </button>
             </div>
           ))}
         </div>
-        <div className="row">
+
+        {/* <div className="row">
           <div className="col-md-12 d-flex justify-content">
             <h1
               style={{
@@ -138,7 +144,7 @@ export function Profile() {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
       <Footer />
     </>

@@ -21,29 +21,66 @@ export function EventCard({ event }) {
   }, []);
 
   return (
-    <div className="card mb-4" style={{ minWidth: "300px", maxWidth: "400px" }}>
-      <div
-        className="card-header"
-        style={{ backgroundColor: event.secondaryColor }}
-      >
-        {event.date}
-      </div>
-      <div className="card-body">
-        <Link
-          to={`/event/view/${event._id}`}
-          style={{ textDecoration: "none" }}
+    <div
+      className="card"
+      style={{
+        width: "18rem",
+        margin: "10px",
+        border: "0",
+        color: event.primaryColor,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+      key={event._id}
+    >
+      <Link to={`/event/view/${event._id}`} style={{ textDecoration: "none" }}>
+        <div
+          className="card-body"
+          style={{
+            backgroundColor: event.secondaryColor,
+            textDecoration: "none !important",
+          }}
         >
-          <h3 className="card-title">{event.eventName}</h3>
-        </Link>
-        <p className="card-text">{event.local}</p>
-        <p className="card-text">Supporters: {event.supporters}</p>
-        {event.categories && (
           <img
             src={categoryIcons[event.categories][event.primaryColor]}
+            className="card-img-top"
             alt="Category Icon"
+            style={{ height: "100%", width: "100px" }}
           />
-        )}
-      </div>
+        </div>
+        <div
+          className="card-body location-box"
+          style={{
+            backgroundColor: "black",
+            color: "white",
+            textDecoration: "none !important",
+          }}
+        >
+          <p className="card-text">Location: {event.city}</p>
+        </div>
+        <div
+          className="card-body title-box"
+          style={{
+            color: "black",
+            textDecoration: "none !important",
+            padding: "5px 0 0 0",
+          }}
+        >
+          <h5 className="card-title">{event.eventName}</h5>
+        </div>
+        <div
+          className="card-body supporters-box"
+          style={{
+            color: "black",
+            textDecoration: "none !important",
+            padding: "0 0 5px 0",
+          }}
+        >
+          <p className="card-text">Supporters: {event.supporters}</p>
+        </div>
+      </Link>
+      <div className="card-body" style={{ marginLeft: "10px" }}></div>
     </div>
   );
 }

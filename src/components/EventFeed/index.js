@@ -5,8 +5,8 @@ import { categoryIcons } from "../Icons/index.js";
 
 export function EventFeed(props) {
   const { search } = props;
-  const [eventFeed, setEventFeed] = useState([]),
-    [isLoading, setIsLoading] = useState(true);
+  const [eventFeed, setEventFeed] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function getAllEvents() {
@@ -42,6 +42,7 @@ export function EventFeed(props) {
                 fontSize: "24px",
                 margin: "30px",
                 marginBottom: "10px",
+                textDecoration: "none !important",
               }}
               className="my-auto"
             >
@@ -60,28 +61,70 @@ export function EventFeed(props) {
                   style={{
                     width: "18rem",
                     margin: "10px",
-                    backgroundColor: event.secondaryColor,
+                    border: "0",
                     color: event.primaryColor,
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
                   }}
                   key={event._id}
                 >
-                  <img
-                    src={categoryIcons[event.categories][event.primaryColor]}
-                    className="card-img-top"
-                    alt="Category Icon"
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title">{event.eventName}</h5>
-                    <p className="card-text">Date: {event.date}</p>
-                    <p className="card-text">Location: {event.local}</p>
-                    <p className="card-text">Supporters: {event.supporters}</p>
-                    <Link
-                      to={`/event/view/${event._id}`}
-                      className="btn btn-primary"
+                  <Link
+                    to={`/event/view/${event._id}`}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <div
+                      className="card-body image-box"
+                      style={{
+                        backgroundColor: event.secondaryColor,
+                        height: "125px", // Definindo uma altura fixa para a div da imagem
+                        textDecoration: "none !important",
+                      }}
                     >
-                      {event.local}
-                    </Link>
-                  </div>
+                      <img
+                        src={
+                          categoryIcons[event.categories][event.primaryColor]
+                        }
+                        className="card-img-top"
+                        alt="Category Icon"
+                        style={{ height: "100%", width: "100px" }}
+                      />
+                    </div>
+                    <div
+                      className="card-body location-box"
+                      style={{
+                        backgroundColor: "black",
+                        color: "white",
+                        textDecoration: "none !important",
+                      }}
+                    >
+                      <p className="card-text">{event.city}</p>
+                    </div>
+                    <div
+                      className="card-body title-box"
+                      style={{
+                        color: "black",
+                        textDecoration: "none !important",
+                        padding: "5px 0 0 0",
+                      }}
+                    >
+                      <h5 className="card-title" style={{ margin: "0" }}>
+                        {event.eventName}
+                      </h5>
+                    </div>
+                    <div
+                      className="card-body supporters-box"
+                      style={{
+                        color: "black",
+                        textDecoration: "none !important",
+                        padding: "0 0 5px 0",
+                      }}
+                    >
+                      <p className="card-text" style={{ fontSize: "16px" }}>
+                        {event.supporters} Participants
+                      </p>
+                    </div>
+                  </Link>
                 </div>
               ))}
             </div>

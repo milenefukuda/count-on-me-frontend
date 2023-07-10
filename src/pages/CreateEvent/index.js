@@ -6,6 +6,8 @@ import { LoggedInNavBar } from "../../components/LoggedInNavBar/index.js";
 import { categoryIcons } from "../../components/Icons/index.js";
 import { PreviewCard } from "../../components/PreviewCard/index.js";
 
+// Resto do código do componente Map
+
 export function CreateEvent() {
   const [countdown, setCountdown] = useState(0);
   const [intervalId, setIntervalId] = useState(null);
@@ -23,7 +25,9 @@ export function CreateEvent() {
     eventName: "",
     date: "",
     time: "",
-    local: "",
+    city: "",
+    startLocation: "",
+    endLocation: "",
     categories: "",
     picture: "",
     description: "",
@@ -136,14 +140,42 @@ export function CreateEvent() {
                     />
                   </div>
                   <div className="mb-3">
-                    <label htmlFor="local" className="form-label"></label>
+                    <label htmlFor="city" className="form-label"></label>
+                    <input
+                      type="city"
+                      className="form-control"
+                      id="formCity"
+                      placeholder="City name"
+                      name="city"
+                      value={form.city}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="startLocation" className="form-label">
+                      Start Location
+                    </label>
                     <input
                       type="text"
                       className="form-control"
-                      id="formLocal"
+                      id="formStartLocation"
                       placeholder="Start location"
-                      name="local"
-                      value={form.local}
+                      name="startLocation"
+                      value={form.startLocation}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="endLocation" className="form-label">
+                      End Location
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="formEndLocation"
+                      placeholder="End location"
+                      name="endLocation"
+                      value={form.endLocation}
                       onChange={handleChange}
                     />
                   </div>
