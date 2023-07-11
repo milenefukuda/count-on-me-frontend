@@ -25,7 +25,10 @@ function App() {
             <Route path="/user/signup" element={<Signup />} />
             <Route path="/user/login" element={<Login />} />
             <Route path="/event/view/:id" element={<ViewEvent />} />
-            <Route path="/message/thankYouWall" element={<ThankYouMessage />} />
+            <Route
+              path="/message/thankYouWall/:id"
+              element={<ThankYouMessage />}
+            />
             <Route path="/event/map/:id" element={<MapComponent />} />
             <Route
               path="/user/profile"

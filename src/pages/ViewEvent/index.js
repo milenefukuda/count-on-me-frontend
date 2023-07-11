@@ -1,10 +1,12 @@
-import { LoggedInNavBar } from "../../components/LoggedInNavBar";
+import { LoggedInNavBar } from "../../components/LoggedInNavBar/index.js";
+import { NavBar } from "../../components/NavBar/index.js";
 import { Footer } from "../../components/Footer";
 import { useParams, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { api } from "../../api/api.js";
 import { categoryIcons } from "../../components/Icons/index.js";
 import { ThankYouMessage } from "../../components/ThankYou/index.js";
+import { AuthContext } from "../../contexts/authContext.js";
 import MapComponent from "../../components/MapComponent/index.js";
 
 export function ViewEvent() {
@@ -22,6 +24,7 @@ export function ViewEvent() {
   );
   const minutes = Math.floor((countdown % (1000 * 60 * 60)) / (1000 * 60));
   const [menuContent, setMenuContent] = useState("description");
+  const { loggedInUser } = useContext(AuthContext);
 
   useEffect(() => {
     async function getEvent() {
@@ -107,7 +110,7 @@ export function ViewEvent() {
 
   return (
     <>
-      <LoggedInNavBar />
+      {loggedInUser ? <LoggedInNavBar /> : <NavBar />}
       <div
         className="container"
         style={{
@@ -322,7 +325,7 @@ export function ViewEvent() {
             {menuContent === "messages" && (
               <div className="menu-content">
                 <h3>Thank you messages</h3>
-                <ThankYouMessage />
+                <ThankYouMessage eventId={params.id} />
               </div>
             )}
           </div>

@@ -1,38 +1,33 @@
 import { useState, useEffect } from "react";
 import { api } from "../../api/api.js";
 
-export function ThankYouMessage() {
+export function ThankYouMessage({ eventId }) {
   const [form, setForm] = useState({
     name: "",
     userMessage: "",
   });
   const [messages, setMessages] = useState([]);
 
-  async function fetchMessages() {
-    try {
-      const response = await api.get("/message/thankYouWall");
-      setMessages(response.data);
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
   useEffect(() => {
+    async function fetchMessages() {
+      try {
+        const response = await api.get(`/message/thankYouWall/${eventId}`);
+        setMessages(response.data);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
     fetchMessages();
   }, []);
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-    const clone = { ...form };
-
+  async function handleSubmit() {
     try {
-      const response = await api.post("/message/thankYou", { ...clone });
+      const response = await api.post(`/message/thankYou/${eventId}`, form);
       setForm({
         name: "",
         userMessage: "",
       });
-
-      fetchMessages();
     } catch (err) {
       console.log(err);
     }
@@ -63,7 +58,7 @@ export function ThankYouMessage() {
           ></textarea>
         </div>
         <button
-          className="btn btn-primary"
+          className="btn btn-secondary"
           type="submit"
           style={{ marginBottom: "10px" }}
         >
@@ -71,9 +66,9 @@ export function ThankYouMessage() {
         </button>
       </form>
       <div>
-        {messages.map((message) => (
+        {messages.map((currentEvent) => (
           <div
-            key={message.id}
+            key={messages._id} // Use um identificador único para cada mensagem
             style={{
               border: "1px solid #ccc",
               borderRadius: "5px",
@@ -81,8 +76,8 @@ export function ThankYouMessage() {
               marginBottom: "10px",
             }}
           >
-            <p>Name: {message.name}</p>
-            <p>Message: {message.userMessage}</p>
+            <p>{messages.userMessage}</p>
+            <p>by: {messages.name}</p>
           </div>
         ))}
       </div>
