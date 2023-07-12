@@ -1,33 +1,45 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { api } from "../../api/api.js";
 
-export function ThankYouMessage({ eventId }) {
+export function ThankYouMessage(eventId) {
+  const params = useParams();
   const [form, setForm] = useState({
     name: "",
     userMessage: "",
   });
   const [messages, setMessages] = useState([]);
 
-  useEffect(() => {
-    async function fetchMessages() {
-      try {
-        const response = await api.get(`/message/thankYouWall/${eventId}`);
-        setMessages(response.data);
-      } catch (err) {
-        console.log(err);
-      }
-    }
-
-    fetchMessages();
-  }, []);
-
-  async function handleSubmit() {
+  async function getMessages() {
     try {
-      const response = await api.post(`/message/thankYou/${eventId}`, form);
+      const response = await api.get(`/message/thankYouWall/${params.id}`);
+      setMessages(response.data);
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  useEffect(() => {
+    getMessages();
+  }, [params.id]);
+
+  function handleChange(e) {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const clone = { ...form, eventId: params.id };
+    try {
+      const response = await api.post(`/message/thankYou/${params.id}`, {
+        ...clone,
+      });
       setForm({
         name: "",
         userMessage: "",
       });
+      getMessages();
+      console.log(response.data);
     } catch (err) {
       console.log(err);
     }
@@ -42,9 +54,7 @@ export function ThankYouMessage({ eventId }) {
             name="name"
             placeholder="Name"
             value={form.name}
-            onChange={(e) =>
-              setForm({ ...form, [e.target.name]: e.target.value })
-            }
+            onChange={handleChange}
           />
         </div>
         <div style={{ marginBottom: "10px" }}>
@@ -52,9 +62,7 @@ export function ThankYouMessage({ eventId }) {
             name="userMessage"
             placeholder="Message"
             value={form.userMessage}
-            onChange={(e) =>
-              setForm({ ...form, [e.target.name]: e.target.value })
-            }
+            onChange={handleChange}
           ></textarea>
         </div>
         <button
@@ -66,9 +74,9 @@ export function ThankYouMessage({ eventId }) {
         </button>
       </form>
       <div>
-        {messages.map((currentEvent) => (
+        {messages.map((message) => (
           <div
-            key={messages._id} // Use um identificador único para cada mensagem
+            key={message._id}
             style={{
               border: "1px solid #ccc",
               borderRadius: "5px",
@@ -76,8 +84,8 @@ export function ThankYouMessage({ eventId }) {
               marginBottom: "10px",
             }}
           >
-            <p>{messages.userMessage}</p>
-            <p>by: {messages.name}</p>
+            <p>{message.userMessage}</p>
+            <p>by: {message.name}</p>
           </div>
         ))}
       </div>
