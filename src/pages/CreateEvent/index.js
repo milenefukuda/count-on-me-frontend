@@ -152,9 +152,10 @@ export function CreateEvent() {
                     />
                   </div>
                   <div className="mb-3">
-                    <label htmlFor="startLocation" className="form-label">
-                      Start Location
-                    </label>
+                    <label
+                      htmlFor="startLocation"
+                      className="form-label"
+                    ></label>
                     <input
                       type="text"
                       className="form-control"
@@ -166,9 +167,7 @@ export function CreateEvent() {
                     />
                   </div>
                   <div className="mb-3">
-                    <label htmlFor="endLocation" className="form-label">
-                      End Location
-                    </label>
+                    <label htmlFor="endLocation" className="form-label"></label>
                     <input
                       type="text"
                       className="form-control"
