@@ -12,7 +12,7 @@ export function EventFeed(props) {
     async function getAllEvents() {
       try {
         const response = await api.get(
-          "http://localhost:4000/event/all-events",
+          `${process.env.REACT_APP_API_URL}/event/all-events`,
           {
             params: { search: search },
           }

@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const apiURL = {
-  development: "http://localhost:4000",
-  production: "LINK DA API DEPLOYADA AQUI",
+  development: `${process.env.REACT_APP_API_URL}`,
+  production: `${process.env.REACT_APP_API_URL}`,
 };
 
 const api = axios.create({ baseURL: apiURL[process.env.NODE_ENV] });
